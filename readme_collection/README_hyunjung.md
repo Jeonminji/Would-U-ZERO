@@ -1,7 +1,7 @@
 ### pleatsmama_scrapping.py를 하며 어려웠던 점
 
 2020-05-01 오후 9시 52분
-![image](https://user-images.githubusercontent.com/70558461/116782955-055b1080-aac7-11eb-8b89-f121c4e70203.png)
+![image](https://user-images.githubusercontent.com/70558461/116783922-646f5400-aacc-11eb-904e-0b33b25627dd.png)
 
 이 홈페이지의 제품을 스크래핑하고싶어서 간단한 코드로 스크래핑 후 csv파일로 저장하려고 했으나 위에 코드로 진행될 때 첫번째 페이지만 스크래핑되고 두 번째 페이지부터 마지막 페이지까지 되지 않았다.
 오히려 page를 변경하면 첫번째 페이지만 반복해서 저장이 되었다.
