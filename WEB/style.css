@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+	padding: 0px 0px 0px 0px;
+    font-family: 'Raleway', 'Jeju Gothic', sans-serif ;
+}
+
+@font-face {
+    font-family: 'Jeju Gothic';
+    font-weight: lighter;
+    src: url(http://fonts.googleapis.com/earlyaccess/jejugothic.cs);
+    unicode-range: U+AC00-U+D7A3;
+}
+
+body {
+    font-family: Arial;
+    padding: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    padding: 25px;
+    text-align: left;
+    background: white;
+}
+.container h1 {
+    font-size: 3.3em;
+	letter-spacing: 5px;
+    margin-left:20px;
+}
+.container img {
+    width: 300px;
+    margin: 0 10px;
+}
+
+header {
+	width:100%;
+	height:80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* top navigation bar 스타일 */
+#topnav {
+    width:600px;
+	height:100%;
+    font-family: 'Raleway', sans-serif;
+    list-style: none;
+    height: 70px;
+    line-height: 0px;
+	letter-spacing: 2px;
+	padding: 5px 0px;
+    font-size: 1.4em;
+}
+#topnav li {
+    list-style: none;
+    float: left;
+    position: relative;
+    padding: 0;
+    
+}
+#topnav li a{
+    display: block;
+    padding: 25px 25px;
+    margin: 0px 0px 0px 5px;
+    text-decoration: none;
+    color: rgb(24, 99, 37);
+    text-align: center;
+}
+#topnav a:hover {
+    color: hsl(103, 100%, 70%);
+    display: block;
+}
