@@ -27,7 +27,7 @@ url = "https://pleatsmama.com/apparel"
 browser.implicitly_wait(30)
 browser.get(url)
 
-# 소분류 카테고리 분류를 위해서 함수로 분리해 둠
+# 소분류 카테고리 분류 및 상품정보 csv 삽입
 def filecsv(items,sub_category):
     
     siteName = "플리츠마마"
@@ -42,7 +42,7 @@ def filecsv(items,sub_category):
         data = [main_category, sub_category, siteName, name, price, img, link]
         writer.writerow(data)
 
-
+# 카테고리 별 클릭
 def cate_click(cate_name):
     # 암묵적 대기
     browser.implicitly_wait(10)
