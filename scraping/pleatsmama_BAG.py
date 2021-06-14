@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 # csv파일저장
-filename = "pleatsmama_bag.csv"
+filename = "플리츠마마/pleatsmama_bag.csv"
 f = open(filename, "w",encoding="utf-8-sig",newline="")
 writer = csv.writer(f)
 
@@ -27,11 +27,12 @@ browser.get(url)
 def filecsv(items,sub_category):
     
     siteName = "플리츠마마"
-    main_category= "bag"
+    main_category= "가방"
 
     for item in items:
         name = item.find("h2").get_text() #제품 이름
-        price = item.find("p", attrs = {"class":"pay no-margin"}).get_text() #가격
+        pri = item.find("p", attrs = {"class":"pay no-margin"}).get_text() #가격
+        price = pri.replace(",","")
         img = item.find("img",attrs ={"class":"_org_img org_img _lazy_img"})['src'] #이미지
         link_href = item.find("a", attrs={"class":"_fade_link"})["href"] #판매 링크
         link = "https://pleatsmama.com"+link_href
@@ -110,7 +111,7 @@ for sub_cate in sub_cate_name:
 # 카테고리 별로 클릭
 for cate_name in category_name:
 
-    # 글리터백은 중복이 되는 상품
+    # 빅백의 경우 사이트 클릭시 소카테고리가 클러치 하나만 보여지는 오류가 있음
     if cate_name == "빅백":
         cate_click(cate_name)
         browser.find_element_by_link_text("니트플리츠백").send_keys(Keys.ENTER)

@@ -31,11 +31,12 @@ browser.get(url)
 def filecsv(items,sub_category):
     
     siteName = "플리츠마마"
-    main_category= "clothes"
+    main_category= "의류"
 
     for item in items:
         name = item.find("h2").get_text() #제품 이름
-        price = item.find("p", attrs = {"class":"pay no-margin"}).get_text() #가격
+        pri = item.find("p", attrs = {"class":"pay no-margin"}).get_text() #가격
+        price = pri.replace(",","")
         img = item.find("img",attrs ={"class":"_org_img org_img _lazy_img"})['src'] #이미지
         link_href = item.find("a", attrs={"class":"_fade_link"})["href"] #판매 링크
         link = "https://pleatsmama.com"+link_href
