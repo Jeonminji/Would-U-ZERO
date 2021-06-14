@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 # csv파일저장
-filename = "플리츠마마/pleatsmama_bag.csv"
+filename = "pleatsmama_bag.csv"
 f = open(filename, "w",encoding="utf-8-sig",newline="")
 writer = csv.writer(f)
 
