@@ -40,7 +40,7 @@ for article in article_list:
     
     siteName = "톤28"
     name = article.find("p", attrs = {"class":"prod-name mb-1"}).get_text()
-    price = article.select_one("p.prod-price > span").get_text()
+    price = article.select_one("p.prod-price > span").get_text().replace(",", "")
     img = article.find('img')['src']
     link = article.find("a")["href"]
     csv_writer.writerow( (main_category, sub_category , siteName, name, price, img, link) )
