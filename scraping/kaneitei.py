@@ -8,7 +8,7 @@ filename = "kaneitei.csv"
 f = open(filename, "w",encoding="utf-8-sig",newline="")
 writer = csv.writer(f)
 
-title = "main_category,sub_category,siteName,name,price,img,link,hash_tag".split(",")
+title = "main_category,sub_category,siteName,name,price,img,link".split(",")
 writer.writerow(title)
 
 # selenium 접속
@@ -43,8 +43,8 @@ def filecsv(items, main_category, sub_category):
         print(img)
         link_href = item.find("a")["href"]
         link = "https://www.kaneitei.com"+link_href #판매링크
-        hash_tag = "null"
-        data = [main_category,sub_category,siteName,name, price, img, link, hash_tag]
+        
+        data = [main_category,sub_category,siteName,name, price, img, link]
         writer.writerow(data)    
 
 
