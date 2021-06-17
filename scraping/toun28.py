@@ -25,17 +25,20 @@ for article in article_list:
     if '씻을거리' in category:
         if '고체세제' in category:
             main_category = "주방"
-            sub_category = "etc"
+            sub_category = "세제"
         else:
-            main_category = "욕실"
-            sub_category = "etc"
-        
+            if '머리' in category:
+                main_category = "욕실"
+                sub_category = "헤어"
+            elif '얼굴' in category:
+                main_category = "화장품"
+                sub_category = "기초"
+            elif '손/몸' in category:
+                main_category = "욕실"
+                sub_category = "바디"
     else:
         main_category = "화장품"
-        if '손/몸' in category:
-            sub_category = "etc"
-        else:
-            sub_category = "기초"
+        sub_category = "기초"
 
     
     siteName = "톤28"
