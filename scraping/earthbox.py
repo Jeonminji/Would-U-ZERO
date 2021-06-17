@@ -31,7 +31,7 @@ for category in category_lists:
 for category in category_list:
     if category != "키트":
         browser.find_element_by_link_text(category).click()
-
+        time.sleep(3)
         soup = BeautifulSoup(browser.page_source,"lxml")
         article_list = soup.find_all('div', {'class': re.compile('shop-item _shop_item')})
 
