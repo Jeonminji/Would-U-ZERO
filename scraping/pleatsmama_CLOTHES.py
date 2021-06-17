@@ -40,7 +40,7 @@ def filecsv(items,sub_category):
         img = item.find("img",attrs ={"class":"_org_img org_img _lazy_img"})['src'] #이미지
         link_href = item.find("a", attrs={"class":"_fade_link"})["href"] #판매 링크
         link = "https://pleatsmama.com"+link_href
-        hash_tag = "  "
+        hash_tag = "null"
         data = [main_category, sub_category, siteName, name, price, img, link, hash_tag]
         writer.writerow(data)
 
@@ -96,7 +96,7 @@ def cate_click(cate_name):
         filecsv(items,sub_category)
     
     else:
-        sub_category = "기타"
+        sub_category = "etc"
         filecsv(items,sub_category)
 
 # 현재 페이지 소스 가져오기

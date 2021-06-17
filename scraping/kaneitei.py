@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 # csv파일저장
-filename = "카네이테이/kaneitei.csv"
+filename = "kaneitei.csv"
 f = open(filename, "w",encoding="utf-8-sig",newline="")
 writer = csv.writer(f)
 
