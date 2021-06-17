@@ -96,7 +96,7 @@ def cate_click(cate_name):
         filecsv(items,sub_category)
     
     else:
-        sub_category = "etc"
+        sub_category = "기타"
         filecsv(items,sub_category)
 
 # 현재 페이지 소스 가져오기
