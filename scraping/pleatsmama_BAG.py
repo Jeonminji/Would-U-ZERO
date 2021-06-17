@@ -9,7 +9,7 @@ filename = "pleatsmama_bag.csv"
 f = open(filename, "w",encoding="utf-8-sig",newline="")
 writer = csv.writer(f)
 
-title = "main_category,sub_category,siteName,name,price,img,link,hash_tag".split(",")
+title = "main_category,sub_category,siteName,name,price,img,link".split(",")
 writer.writerow(title)
 
 
@@ -36,8 +36,8 @@ def filecsv(items,sub_category):
         img = item.find("img",attrs ={"class":"_org_img org_img _lazy_img"})['src'] #이미지
         link_href = item.find("a", attrs={"class":"_fade_link"})["href"] #판매 링크
         link = "https://pleatsmama.com"+link_href
-        hash_tag = "null"
-        data = [main_category, sub_category, siteName, name, price, img, link, hash_tag]
+        
+        data = [main_category, sub_category, siteName, name, price, img, link]
         writer.writerow(data)
 
 # 카테고리 별 클릭
@@ -92,7 +92,7 @@ def cate_click(cate_name):
         filecsv(items, sub_category)
     
     else:
-        sub_category = "etc"
+        sub_category = "기타"
         filecsv(items,sub_category)
 
 # 현재 페이지 소스 가져오기
