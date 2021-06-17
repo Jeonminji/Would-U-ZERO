@@ -1,0 +1,20 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import pandas as pd
+
+html = urlopen("http://wecontinew.co.kr/product/list.html?cate_no=31&page=2")
+
+bsObject = BeautifulSoup(html, "html.parser")
+li_code = bsObject.select('li > span[style = "font-size:12px;color:#555555;"]')
+print(li_code)
+
+ulli_total = []
+for c in range(0, len(li_code)):
+    ulli_total.append(li_code[c].get_text())
+
+print(ulli_total)
+
+df = pd.DataFrame(ulli_total, columns=["price"])
+df.to_csv('scraping_price.csv', index=False,encoding="utf-8")
+
+print(df)
