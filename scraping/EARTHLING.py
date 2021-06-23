@@ -12,7 +12,7 @@ title = "main_category,sub_category,siteName,name,price,img,link".split(",")
 writer.writerow(title)
 
 for i in range(1,3):
-    url = "https://smartstore.naver.com/horanmalko/category/97b8cfa4060d4eec980533f5324e468e?cp={}".format(i)
+    url = "https://smartstore.naver.com/horanmalko/category/97b8cfa4060d4eec980533f5324e468e?st=POPULAR&free=false&dt=BIG_IMAGE&page={}&size=40".format(i)
     response = requests.get(url)
     bs = BeautifulSoup(response.text, 'html.parser')
     items = bs.find_all("li", attrs = {"class":"-qHwcFXhj0"})
