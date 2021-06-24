@@ -21,12 +21,10 @@ web_list = ["https://smartstore.naver.com/thedarum1/products/5581303962",
 
 product_list = []
 
-print(web_list)
 for web_site in web_list:
     web = requests.get(web_site)
     soup = BeautifulSoup(web.content, "html.parser")
 
-    print(web)
     #원가
     price = soup.select("._1LY7DqCnwR")[0].get_text().replace(",","")
 
@@ -91,7 +89,6 @@ for web_site in web_list:
     web = requests.get(web_site)
     soup = BeautifulSoup(web.content, "html.parser")
     
-    print(web)
     
     #가격
     price = soup.select("._1LY7DqCnwR")[0].get_text().replace(",","")
@@ -134,8 +131,6 @@ for web_site in web_list:
         s_category = "기타"
 
     small_list=[b_category, s_category, shop, content, (price + '원'), img, link]
-    
-    print(small_list)
     
     product_list.append(small_list)
     
