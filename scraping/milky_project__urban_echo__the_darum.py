@@ -1,8 +1,11 @@
+#!/usr/bin/python
+# coding=utf8
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-f = open("wuz_web_scraping.csv", "a")
+f = open("thedarum_unrbanecho_milkyproject.csv", "a", encoding = "utf-8-sig")
 
 # 더 다룸
 
@@ -18,10 +21,12 @@ web_list = ["https://smartstore.naver.com/thedarum1/products/5581303962",
 
 product_list = []
 
+print(web_list)
 for web_site in web_list:
     web = requests.get(web_site)
     soup = BeautifulSoup(web.content, "html.parser")
 
+    print(web)
     #원가
     price = soup.select("._1LY7DqCnwR")[0].get_text().replace(",","")
 
@@ -36,21 +41,24 @@ for web_site in web_list:
 
     #판매 링크
     link = web_site
-    #큰 카테고리
+    
+    #카테고리
     if content.find("칫솔") != -1:
         b_category = "욕실"
+        s_category = "구강"
     elif content.find("행주") != -1:
         b_category = "주방"
+        s_category = "행주"
     else:
         b_category = "잡화"
-        
-    #작은 카테고리
-    s_category = "etc"
+        s_category = "기타"
     
     small_list=[b_category, s_category, shop, content, (price + '원'), img, link]
+    print(small_list)
     product_list.append(small_list)
 
-#milky project, urban.echo
+#밀키 프로젝트, urban.echo
+
 web_list = ["https://smartstore.naver.com/urbanecho/products/4828982423",
            "https://smartstore.naver.com/urbanecho/products/4694845812",
            "https://smartstore.naver.com/urbanecho/products/4963443559",
@@ -83,6 +91,8 @@ for web_site in web_list:
     web = requests.get(web_site)
     soup = BeautifulSoup(web.content, "html.parser")
     
+    print(web)
+    
     #가격
     price = soup.select("._1LY7DqCnwR")[0].get_text().replace(",","")
 
@@ -98,18 +108,34 @@ for web_site in web_list:
     #판매 링크
     link = web_site
     
-     #큰 카테고리
+     #카테고리
     if (content.find("수세미") != -1) or (content.find("행주") != -1) or (content.find("스트로우") != -1):
         b_category = "주방"
+        if (content.find("수세미") != -1):
+            s_category = "수세미"
+        elif (content.find("행주") != -1):
+            s_category = "행주"
+        else:
+            s_category = "기타"
     elif (content.find("칫솔") != -1) or (content.find("샤워") != -1):
         b_category = "욕실"
+        if (content.find("칫솔") != -1):
+            s_category = "구강"
+        else:
+            s_category = "기타"
+    elif (content.find("화장") != -1):
+        b_category = "화장품"
+        if (content.find("세안") != -1):
+            s_category = "기초"
+        else:
+            s_category = "기타"
     else:
         b_category = "잡화"
-    
-    #작은 카테고리
-    s_category = "etc"
-    
+        s_category = "기타"
+
     small_list=[b_category, s_category, shop, content, (price + '원'), img, link]
+    
+    print(small_list)
     
     product_list.append(small_list)
     
