@@ -52,7 +52,6 @@ for web_site in web_list:
         s_category = "기타"
     
     small_list=[b_category, s_category, shop, content, (price + '원'), img, link]
-    print(small_list)
     product_list.append(small_list)
 
 #밀키 프로젝트, urban.echo
@@ -135,5 +134,5 @@ for web_site in web_list:
     product_list.append(small_list)
     
 data = pd.DataFrame(product_list, columns=['main_category','sub_category','siteName', 'name','price', 'img','link'])
-data.to_csv("wuz_web_scraping.csv", index=False)
+data.to_csv("thedarum_unrbanecho_milkyproject.csv", index=False)
 f.close()
