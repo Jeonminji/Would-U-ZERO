@@ -97,26 +97,6 @@ header {
 .topnav li:hover a{
     color: var(--accent-color);
 }
-.topnav_online_category{
-    display: none;
-    line-height: 10px;
-    position:absolute;
-    background-color: var(--background-color);
-    /* padding: 0; categorytext를 앞으로 당김 */
-}
-
-.topnav_online_category li{
-    width: 100%;
-}
-.topnav_online_category a{
-    float: left;
-}
-.topnav li:hover > .topnav_online_category{
-    display: block;
-}
-.topnav_online_category li:hover{
-    background-color: var(--accent-color2); 
-}
 
 
 
