@@ -21,8 +21,11 @@ for i in range(1,3):
         main_category = ''
         sub_category = ''
         name = item.find("strong", attrs = {"class":"QNNliuiAk3"}).get_text() #상품
-        pri = item.find("span", attrs = {"class":"nIAdxeTzhx"}).get_text() #가격
-        price = pri.replace(",","")
+        try:
+            price = item.find("span",attrs = {"class":"_45HSXeff1y"}).find("span", attrs = {"class":"nIAdxeTzhx"}).get_text().replace(",","") +"원"
+
+        except:
+            price = item.find("div",attrs = {"class":"_23DThs7PLJ"}).find("strong").find("span", attrs = {"class":"nIAdxeTzhx"}).get_text().replace(",","") +"원"
         img = item.find("img", attrs = {"class":"_25CKxIKjAk"})['src']
         siteName = "EARTHLING"
         link_href = item.find("a")["href"]
