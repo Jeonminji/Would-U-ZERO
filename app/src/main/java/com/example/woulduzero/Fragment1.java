@@ -169,3 +169,7 @@ public class Fragment1 extends Fragment {
     };
 
 }
+        return inflater.inflate(R.layout.fragment_fragment1, container, false);
+    }
+
+}
