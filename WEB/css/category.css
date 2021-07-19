@@ -46,7 +46,9 @@
 
 .contents {
     width:800px; 
-	margin-left:200px;height:650px;
-	font-size: 64px; text-transform: uppercase;
+	margin-left:200px;
+	height:650px;
+	font-size: 64px; 
+	text-transform: uppercase;
 	line-height: 650px;
 }

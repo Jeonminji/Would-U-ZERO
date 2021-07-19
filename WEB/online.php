@@ -1,3 +1,38 @@
+<?php
+	// ini_set('display_errors', '0'); //에러 메시지 출력 x
+    $db_host = "localhost"; 
+    $db_user = "admin";
+    $db_passwd = "admin";
+    $db_name = "Zero";
+    header("Content-Type:text/html;charset=utf-8");
+
+    $link = mysqli_connect($db_host, $db_user, $db_passwd, $db_name); //DB 접속
+
+	$query = "
+		SELECT 
+			main_category, sub_category, siteName, name, price, img, link
+		FROM
+			online
+		ORDER BY name DESC
+		LIMIT 1, 8
+	";
+
+	$result = mysqli_query($link, $query);
+
+	$article = '';
+	while($row = mysqli_fetch_array($result)) {
+		$article .= '<div class = item>';
+		$article .= '<a href="'.$row['link'].'">';
+		$article .= '<img src="'.$row['img'].'">';
+		$article .= '</a>';
+		$article .= '<br>사이트명: '.$row['siteName'].'<br>';
+		$article .= '물품명: '.$row['name'].'<br>';
+		$article .= '가격: '.$row['price'].'<br>';
+		$article .= '</div>';
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,9 +59,8 @@
         <ul>
           <li><a href="index.html">home</a></li>
           <li><a href="about.html">about</a></li>
-          <li><a href="online.html">online</a></li>
+          <li><a href="online.php">online</a></li>
           <li><a href="offline.html">offline</a></li>
-      
         </ul>
       </div>
     </header>
@@ -44,7 +78,7 @@
 	  }
 	  .search-box > input {
 			height: 35px;
-			width: 940px;
+			width: 740px;
 			font-size: 16px;
 			padding: 10px;
 			border: 0px;
@@ -62,29 +96,28 @@
 	  }
 
 	  .product {
-		  margin-top: 40px;
-		  margin-left: 300px;
+		  margin-top: 0px;
+		  margin-left: 260px;
+	  }
+
+	  .item {
+		  margin: 20px 0 0 40px;
 		  outline-style: solid;
-		  height: 270px;
-		  width: 200px;
+		  height: 330px;
+		  width: 220px;
+		  float: left;
 	  }
 
-	  .product > a > img {
-		  max-width: 100%;
+	  .item > a > img {
+		  height: 240px;
+		  width: 220px;
 	  }
 
-	  .product2 {
-		  margin-top: 40px;
-		  margin-left: 600px;
-		  outline-style: solid;
-		  height: 270px;
-		  width: 200px;
+	  select {
+		  margin-top: 15px;
+		  margin-left: 250px;
+		  width: 140px;
 	  }
-
-	  .product2 > img {
-		  max-width: 100%;
-	  }
-
   </style>
   
   <div class="search-box">
@@ -163,28 +196,15 @@
 		</header>
 	</div>
 
+	<select name="range">
+        <option value="">낮은가격순</option>
+        <option value="">높은가격순</option>
+		<option value="ASC">사이트명 오름차순</option>
+		<option value="DESC">사이트명 내림차순</option>
+    </select>
+	
 	<div class="product">
-		<a href="https://www.kaneitei.com/product/om_black">
-			<img src="https://contents.sixshop.com/thumbnails/uploadedFiles/28069/product/image_1603017935832_1000.jpg">
-		</a>
-		<!-- <img src="https://contents.sixshop.com/thumbnails/uploadedFiles/28069/product/image_1603017935832_1000.jpg"> -->
-		&nbsp사이트명  ~~ <br>
-		&nbsp가격 ~~ <br>
-		&nbsp물품명 ~~ 
-	</div>
-	<div class="product">
-		<a href="">
-			<img src="https://shop-phinf.pstatic.net/20210129_95/1611910166800f2ODV_JPEG/13046009463484631_100949993.jpg?type=m510">	
-		</a>
-		&nbsp사이트명  ~~ <br>
-		&nbsp가격 ~~ <br>
-		&nbsp물품명 ~~ 
-	</div>
-	<div class="product2">
-		<img src="https://shop-phinf.pstatic.net/20210129_95/1611910166800f2ODV_JPEG/13046009463484631_100949993.jpg?type=m510">
-		&nbsp사이트명  ~~ <br>
-		&nbsp가격 ~~ <br>
-		&nbsp물품명 ~~ 
+		<?= $article ?>
 	</div>
   </body>
 </html>
