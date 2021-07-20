@@ -11,8 +11,11 @@
       <link rel="stylesheet" href = "css\recommend_item.css?after">
       <link rel="stylesheet" href = "css\index_online.css?after">
       <link rel="stylesheet" href = "css\index_offline.css?after">
+      <link rel="stylesheet" href="css\dialog_modal.css?after">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	acbd7d93f0734d392c1fb627ff0cd725&libraries=services,clusterer,drawing"></script>
+      <script   src="http://code.jquery.com/jquery-latest.min.js"></script>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
   </head>
@@ -837,19 +840,47 @@
     <!-- offline_part -->
     <div class="off_box1">
       <div class = "off_box2">
-         
-          <div class="off_box3">
-              <div class="off_box4">
-                <div class = "off_txt">OFFLINE</div>
-              </div>
-              <div class="off_box5">
-                  <div class = "off_box6"></div>
-                  <div class = "off_box7"></div>
-              </div>
-              
+        <div class="off_box3">
+            <div class="off_box4">
+              <div class = "off_txt">OFFLINE</div>
+            </div>
+            <div class="off_box5">
+              <div class = "off_box6">
+                  <?php include('/var/www/html/Would-U-ZERO/WEB/php/index_off_store.php')?>
+                
+                <div class = "off_store_box">
+                  <?= $article ?>
+                  
+                </div>
         
-            </div>     
+              </div>
+              <div class = "off_box7">
+                <div class= "off_map">
+                  <div id = "map"></div>
+                  
+                </div>
+                <div class = "off_info">
+                  <div class = "off_store_name"><span></span></div>
+                  <div class = "off_store_loc"><span></span></div>
+                  <div class = "off_store_type"><span></span></div>
+                </div>        
+              </div>
+            </div>
+        </div>     
+      </div>
+      <script src = "js/index_map.js"></script>
+      <script src = "js/off_click.js"></script>
+    </div>
+
+    <!-- 모달창 -->
+    <div class="modal hidden">
+      <div class="modal_overlay"></div>
+      <div class="modal_contant">
+        <div class = "more_info_map"></div>
+        <div class = "more_info"></div>
       </div>
     </div>
+    <script src = "js/modal.js"></script>
+
   </body>
 </html>
