@@ -6,4 +6,4 @@
 - 안설령 : 더다룸, Milky Project, urban.echo
 - 이지은 : EATRHILING
 - 전민지 : 톤28, EARTHBOX
-- 전현정 : KANEITEI, PLEATS MAMA
+- 전현정 : KANEITEI, PLEATS MAMA, 오프라인매장
