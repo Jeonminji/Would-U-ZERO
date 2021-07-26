@@ -5,12 +5,18 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
       <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
       <title>Would U ZERO?</title>
-      <link rel="stylesheet" href="header.css?after">
+      <link rel="stylesheet" type="text/css" href="css/header.css">
+      <link rel="stylesheet" type="text/css" href="css/offline_intro.css">
+      <link rel="stylesheet" type="text/css" href="css/offline_search.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-      <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
-  </head>
-  <body>
+      <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ae1972e6135695045dba7eaea63301c"></script>
+      <script type="text/javascript" src="js/category.js"></script>
+      <script type="text/javascript" src="js/offline_search.js"></script>
+    </head>
+
+    <body>
     <!-- header -->
     <div class="container">
     <header>
@@ -32,6 +38,71 @@
   </div>
   <!-- header end -->
 
+  <!-- filter -->
+  <div class="filter_container">
+    <a id="cafe" class="filter" href="offline_search.html?filter=카페&page=1">
+      <p>카페</p>
+    </a>
 
-  </body>
+    <a id="zerowaste" class="filter" href="offline_search.html?filter=제로웨이스트&page=1">
+      <p>제로웨이스트샵</p>
+    </a>
+
+    <a id="refill" class="filter" href="offline_search.html?filter=리필&page=1">
+      <p>리필샵</p>
+    </a>
+  </div>
+  <!-- filter end -->
+
+  <!-- Would U Zero introduction div -->
+  <div class="offline_intro">
+    <p>Would U ZERO는 제로웨이스트를 지향하는 카페, 리필샵, 제로웨이스트샵을 소개하는 플렛폼입니다.</p>
+    <p>위의 카테고리를 선택하시면 페이지 하단에 매장의 위치와 함께 자세한 정보가 나타납니다.</p>
+  </div>
+  <!-- Would U Zero introduction div end -->
+
+  <!-- map -->
+  <div class="mapContainer">
+    <div id="map">
+    <script>
+      var ary = <?php include 'php/offline_first_map.php';?>;
+
+      // 지도 생성
+        var mapContainer = document.getElementById('map'),
+            mapOption = { 
+                center: new kakao.maps.LatLng(37.5456, 126.9798),
+                level: 8 // 지도의 확대 레벨
+            };
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 매장 위치 표시
+  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < ary.length; i++)
+    {
+        var imageSize = new kakao.maps.Size(24,35);
+
+        var markerImg = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(ary[i]['lat'], ary[i]['lng']),
+            title: ary[i]['store_name'],
+            image: markerImg
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+        content: ary[i]['store_name']
+    });
+
+      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    }
+
+    </script> 
+  </div>
+</div>
+<!-- map end -->
+
+</body>
 </html>
