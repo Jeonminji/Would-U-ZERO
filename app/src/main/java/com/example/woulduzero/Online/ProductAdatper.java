@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,9 +31,8 @@ public class ProductAdatper extends RecyclerView.Adapter<ProductAdatper.ProductV
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_online_product, parent, false);
-        ProductViewHolder holder = new ProductViewHolder(view);
 
-        return holder;
+        return new ProductViewHolder(view);
     }
 
     @Override
@@ -51,12 +49,9 @@ public class ProductAdatper extends RecyclerView.Adapter<ProductAdatper.ProductV
         holder.product_uppercategory.setText(arrayList.get(position).getMain_category());
         holder.product_lowercategory.setText(arrayList.get(position).getSub_category());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getLink()));
-                holder.itemView.getContext().startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getLink()));
+            holder.itemView.getContext().startActivity(intent);
         });
     }
 
@@ -81,8 +76,8 @@ public class ProductAdatper extends RecyclerView.Adapter<ProductAdatper.ProductV
             this.product_name = itemView.findViewById(R.id.text_product_name);
             this.product_brand = itemView.findViewById(R.id.text_product_brand);
             this.product_price = itemView.findViewById(R.id.text_product_price);
-            this.product_lowercategory = itemView.findViewById(R.id.text_subcategory);
-            this.product_uppercategory = itemView.findViewById(R.id.text_maincategory);
+            this.product_lowercategory = itemView.findViewById(R.id.product_subcategory);
+            this.product_uppercategory = itemView.findViewById(R.id.product_maincategory);
 
 
         }

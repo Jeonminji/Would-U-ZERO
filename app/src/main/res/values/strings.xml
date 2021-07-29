@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">WouldUZero</string>
     <string name="product_name">상품이름</string>
-    <string name="product_cost">상품가격</string>
-    <string name="product_brand">브랜드</string>
+    <string name="product_price">상품가격</string>
+    <string name="product_siteName">브랜드</string>
     <string name="추천상품">추천상품</string>
     <string name="전체상품">전체상품</string>
+    <string name="mainCategory">상위 카테고리</string>
+    <string name="subCategory">하위 카테고리</string>
+    <string name="image">이미지</string>
 </resources>

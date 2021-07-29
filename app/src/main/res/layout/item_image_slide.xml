@@ -26,14 +26,28 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:src="@drawable/image_sample"
-                android:contentDescription="sibal"/>
+                android:contentDescription="image"/>
 
             <TextView
-                android:id="@+id/text_slide_brand"
+                android:id="@+id/text_maincategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_brand"
-                android:textSize="10sp"
+                android:text="@string/mainCategory"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/text_subcategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/subCategory" />
+
+
+            <TextView
+                android:id="@+id/text_slide_siteName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_siteName"
+                android:textSize="12sp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"/>
             <TextView
@@ -41,15 +55,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_name"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp" />
             <TextView
                 android:id="@+id/text_slide_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_cost"
-                android:textSize="14sp"
+                android:text="@string/product_price"
+                android:textSize="12sp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"/>
 

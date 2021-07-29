@@ -21,37 +21,31 @@
 
             <ImageView
                 android:id="@+id/img_online_product"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:src="@drawable/image_sample"
-                android:contentDescription="sibal"/>
+                android:contentDescription="@string/image"/>
 
             <TextView
-                android:id="@+id/text_maincategory"
+                android:id="@+id/product_maincategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="상위 카테고리"
+                android:text="@string/mainCategory"
                 android:visibility="gone"/>
             <TextView
-                android:id="@+id/text_subcategory"
+                android:id="@+id/product_subcategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:text="하위 카테고리" />
-
-            <TextView
-                android:id="@+id/text_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:text="@string/subCategory" />
 
             <TextView
                 android:id="@+id/text_product_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_brand"
+                android:text="@string/product_siteName"
                 android:textSize="16sp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"/>
@@ -67,8 +61,9 @@
                 android:id="@+id/text_product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_cost"
+                android:text="@string/product_price"
                 android:textSize="18sp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"/>
 
