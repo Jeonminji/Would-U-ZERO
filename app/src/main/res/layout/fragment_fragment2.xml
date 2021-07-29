@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="3dp">
 
             <TextView
                 android:id="@+id/textView"
@@ -68,8 +68,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="0dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:text="제로웨이스트샵 &amp; 리필"
                     app:backgroundTint="#98D15F"
                     app:layout_constraintBottom_toBottomOf="parent"

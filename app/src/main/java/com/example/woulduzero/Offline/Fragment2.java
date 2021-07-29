@@ -1,19 +1,19 @@
-package com.example.woulduzero.Offline;
+package com.example.woulduzero;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.woulduzero.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,42 +23,31 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Fragment2 extends Fragment {
-    private RecyclerView recyclerView;
     private CustomAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
     private ArrayList<OfflineShop> offlineShops, filteredList;
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
-
 
     public Fragment2() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) { // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_fragment2, container, false);
 
-//        layout.findViewById(R.id.btn_cafe).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(v.getContext(), "wow", Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-
         // 리사이클러뷰 초기화
-        recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-        layoutManager = new GridLayoutManager(this.getContext(), 2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this.getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
         offlineShops = new ArrayList<>(); // OfflineShop 객체를 담을 어레이 리스트 (어댑터쪽으로)
+        filteredList = new ArrayList<>();
+        adapter = new CustomAdapter(offlineShops, this.getContext());
+        recyclerView.setAdapter(adapter);
 
-        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
+        FirebaseDatabase database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
 
-        databaseReference = database.getReference("OfflineShop"); // DB 테이블 연결
+        DatabaseReference databaseReference = database.getReference("OfflineShop"); // DB 테이블 연결
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -78,36 +67,32 @@ public class Fragment2 extends Fragment {
             }
         });
 
-        adapter = new CustomAdapter(offlineShops, this.getContext());
-        recyclerView.setAdapter(adapter);
+        Button btn_cafe = (Button) layout.findViewById(R.id.btn_cafe);
+        Button btn_refill = (Button) layout.findViewById(R.id.btn_refill);
+        Button btn_zero = (Button) layout.findViewById(R.id.btn_zero);
 
-
-//        Button btn_cafe = (Button) getActivity().findViewById(R.id.btn_cafe);
-//        btn_cafe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                adapter = new CustomAdapter(searchFilter("카페"), Fragment2.super.getContext());
-//                recyclerView.setAdapter(adapter);
-//            }
-//        });
-
-        View.OnClickListener clickListener = new View.OnClickListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btn_cafe: {
-                        searchFilter("카페");
-                        break;
-                    }
-                    case R.id.btn_refill: {
-                        Toast.makeText(v.getContext(), "refill", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                    case R.id.btn_zero: {
-                        Toast.makeText(v.getContext(), "zero", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
+        @SuppressLint("NonConstantResourceId") View.OnClickListener clickListener = v -> {
+            switch (v.getId()) {
+                case R.id.btn_cafe: {
+                    clickedButtonColor(btn_cafe);
+                    unclickedButtonColor(btn_refill);
+                    unclickedButtonColor(btn_zero);
+                    searchFilter("카페");
+                    break;
+                }
+                case R.id.btn_refill: {
+                    unclickedButtonColor(btn_cafe);
+                    clickedButtonColor(btn_refill);
+                    unclickedButtonColor(btn_zero);
+                    searchFilter("리필 단일샵");
+                    break;
+                }
+                case R.id.btn_zero: {
+                    unclickedButtonColor(btn_cafe);
+                    unclickedButtonColor(btn_refill);
+                    clickedButtonColor(btn_zero);
+                    searchFilter("제로웨이스트 샵 & 리필");
+                    break;
                 }
             }
         };
@@ -135,27 +120,13 @@ public class Fragment2 extends Fragment {
         adapter.filterList(filteredList);
     }
 
-//    public void onClick(View v) {
-//        switch (v.getId())
-//        {
-//            case R.id.btn_cafe:
-//            {
-//                adapter.notifyDataSetChanged();
-//                adapter = new CustomAdapter(searchFilter("카페"), this.getContext());
-//                recyclerView.setAdapter(adapter);
-//            }
-//            case R.id.btn_refill:
-//            {
-//                adapter = new CustomAdapter(searchFilter("리필 단일샵"), this.getContext());
-//                recyclerView.setAdapter(adapter);
-//                adapter.notifyDataSetChanged();
-//            }
-//            case R.id.btn_zero:
-//            {
-//                adapter = new CustomAdapter(searchFilter("제로웨이스트 샵 & 리필"), this.getContext());
-//                recyclerView.setAdapter(adapter);
-//                adapter.notifyDataSetChanged();
-//            }
-//        }
-//    }
+    public void clickedButtonColor(Button b) {
+        b.setTextColor(Color.parseColor("#FF98D15F"));
+        b.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+    }
+
+    public void unclickedButtonColor(Button b) {
+        b.setTextColor(Color.parseColor("#FFFFFFFF"));
+        b.setBackgroundColor(Color.parseColor("#FF98D15F"));
+    }
 }

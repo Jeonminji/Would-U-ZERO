@@ -47,13 +47,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         holder.tv_address.setText(item.getAddress());
         holder.tv_storetype.setText(item.getStore_type());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(), OfflineshopInfo.class);
-                intent.putExtra("offlineshop", item);
-                holder.itemView.getContext().startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), OfflineshopInfo.class);
+            intent.putExtra("offlineshop", item);
+            holder.itemView.getContext().startActivity(intent);
         });
     }
 
@@ -65,10 +62,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public void filterList(ArrayList<OfflineShop> filteredList) {
         arrayList = filteredList;
         notifyDataSetChanged();
-    }
-
-    public void setArrayList(ArrayList<OfflineShop> arrayList) {
-        this.arrayList = arrayList;
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {

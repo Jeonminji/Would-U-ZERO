@@ -3,6 +3,7 @@ package com.example.woulduzero.Offline;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +30,7 @@ public class OfflineshopInfo extends AppCompatActivity implements OnMapReadyCall
 
     int index = 0;
 
-    private FragmentManager fragmentManager;
-    private MapFragment mapFragment;
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,15 +51,12 @@ public class OfflineshopInfo extends AppCompatActivity implements OnMapReadyCall
         tv_strname.setText("[ " + of.getStore_name() + " ]");
 
         ImageButton ib_insta = (ImageButton) findViewById(R.id.ib_insta);
-        ib_insta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context c = v.getContext();
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(of.getLink()));
+        ib_insta.setOnClickListener(v -> {
+            Context c = v.getContext();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(of.getLink()));
 
-                c.startActivity(intent);
-            }
+            c.startActivity(intent);
         });
 
         TextView tv_ophours = (TextView) findViewById(R.id.tv_ophours);
@@ -74,15 +70,12 @@ public class OfflineshopInfo extends AppCompatActivity implements OnMapReadyCall
 
         TextView tv_pn = (TextView) findViewById(R.id.tv_pn);
         tv_pn.setText(of.getStore_phone_number());
-        tv_pn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context c = v.getContext();
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:" + of.getStore_phone_number().replace("-", "")));
+        tv_pn.setOnClickListener(v -> {
+            Context c = v.getContext();
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + of.getStore_phone_number().replace("-", "")));
 
-                c.startActivity(intent);
-            }
+            c.startActivity(intent);
         });
 
         TextView tv_info = (TextView) findViewById(R.id.tv_info);
@@ -90,8 +83,8 @@ public class OfflineshopInfo extends AppCompatActivity implements OnMapReadyCall
 
 
         // 구글 맵 관련 코드
-        fragmentManager = getFragmentManager();
-        mapFragment = (MapFragment)fragmentManager.findFragmentById(R.id.googleMap);
+        FragmentManager fragmentManager = getFragmentManager();
+        MapFragment mapFragment = (MapFragment) fragmentManager.findFragmentById(R.id.googleMap);
         mapFragment.getMapAsync(this);
     }
 
