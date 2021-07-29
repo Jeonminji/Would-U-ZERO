@@ -2,7 +2,6 @@
     width: 100%;
     height: 400px;
     position: relative;
-    border: solid 1px black;
     text-align: center;
 
 }
@@ -11,21 +10,18 @@
     height: 350px;
     display: inline-block;
     margin: 25px;
-    border: solid 1px black;
+   
 }
 .home_cate_list_box3{
     width: 100%;
     height: 50px;
-    border: solid 1px red;
-    /* text-align: center; */
-    
+
 }
 .home_cate_list_txt{
     width: 200px;
     height: 100%;
     font-size: 2em;
     font-weight: bold;
-    border: solid 1px blue;
     padding: 5px 20px;
     /* text-align: center; */
 }
@@ -34,8 +30,6 @@
     width: 100%;
     height: 300px;
     padding: 25px;
-    border: solid 1px purple;
-    
 }
 
 .home_cate_list{
@@ -43,7 +37,7 @@
     height: 230px;
     display: inline-block;
     justify-content: center;
-    border: solid 1px palegreen;
+   
 }
 .home_cate_list_img_box{
     width: 100%;
@@ -62,5 +56,4 @@
 .blank{
     width: 100%;
     height: 50px;
-    border: solid 1px pink;
 }

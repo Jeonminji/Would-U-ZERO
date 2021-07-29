@@ -61,14 +61,11 @@
     left:0; 
     top:0;
     width: 3840px;
-    /* overflow: hidden; */
-   
-    /* margin: 10px 0; */
     
 }
 
 .online_slides.animated{
-    transition:  0.5s ease-out;
+    transition: 0.2s ease-out;
 }
 
     
@@ -86,11 +83,32 @@
     color: gray;
     padding: 10px 25px;
     text-align: center;
-    border: solid 2px blueviolet;
+    border: solid 2px var(--accent-color4);
     border-radius: 10px;
 
     font-size: 1.2em;
     letter-spacing: 1px;
     
+}
+.controls{
+    text-align: center;
+}
+.controls span{
+    position: absolute;
+    color: gray;
+    padding: 10px 20px;
+    margin :0;
+    top: 50%;
+    /* transform: translateY(-100%); */
+    border: solid 2px blueviolet;
+    
+}
+
+.online_prev{
+    left: 40px;
+}
+
+.online_next{
+    right: 40px;
 }
 
