@@ -11,96 +11,80 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:background="#FFFFFF"
-            app:srcCompat="@android:drawable/ic_menu_sort_by_size"
-            app:tint="#98D15F" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="345dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_weight="9"
-                    android:ems="10"
-                    android:hint="찾으시는 매장이 있으신가요?"
-                    android:inputType="textPersonName" />
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:background="#FFFFFF"
-                    app:srcCompat="@android:drawable/ic_menu_search"
-                    app:tint="#98D15F"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/oztown"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:text="[서울 연남동] 오즈타운"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="분류"
+                android:textColor="#98D15F"
+                android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:src="@drawable/withearthshop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:gravity="center_horizontal"
-                android:text="[서울 노원구] 지구랑가게"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btn_cafe"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="카페"
+                    app:backgroundTint="#98D15F"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_refill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="리필단일샵"
+                    app:backgroundTint="#98D15F"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_zero"
+                    app:layout_constraintStart_toEndOf="@+id/btn_cafe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <Button
+                    android:id="@+id/btn_zero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="제로웨이스트샵 &amp; 리필"
+                    app:backgroundTint="#98D15F"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_refill"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
 
 </FrameLayout>

@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WouldUZero">
+        <activity android:name=".OfflineshopInfo"></activity>
+        <activity android:name=".MainActivity">
 
         <activity android:name=".FirstActivity">
             <intent-filter>
@@ -18,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAAnkk7jeY81SKGzuNJpQqLmrfsmXuy4eo" />
+
         <activity android:name=".SubActivity" />
         <activity android:name=".ThirdActivity" />
         <activity android:name=".PageActivity" />
