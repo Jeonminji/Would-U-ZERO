@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fadingEdge="none"
     android:orientation="vertical"
-    tools:context=".OfflineshopInfo">
+    tools:context=".Offline.OfflineshopInfo">
 
     <LinearLayout
         android:layout_width="match_parent"

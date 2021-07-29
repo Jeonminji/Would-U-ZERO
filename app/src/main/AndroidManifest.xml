@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WouldUZero">
-        <activity android:name=".OfflineshopInfo"></activity>
+        <activity android:name=".Offline.OfflineshopInfo"></activity>
         <activity android:name=".MainActivity">
 
         <activity android:name=".FirstActivity">

@@ -1,4 +1,4 @@
-package com.example.woulduzero;
+package com.example.woulduzero.Offline;
 
 import android.os.Parcel;
 import android.os.Parcelable;
