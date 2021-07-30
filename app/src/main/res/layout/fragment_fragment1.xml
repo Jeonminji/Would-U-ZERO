@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".Online.Fragment1">
+    tools:context=".Online.Fragment_Online">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +55,6 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-</FrameLayout>
         <TextView
             android:id="@+id/text_recommend_item"
             android:layout_width="match_parent"

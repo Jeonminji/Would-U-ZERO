@@ -7,6 +7,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.woulduzero.Offline.Fragment_Offline;
+import com.example.woulduzero.Online.Fragment_Online;
+
 public class PageActivity extends AppCompatActivity implements View.OnClickListener{
 
     private final int FRAGMENT1 = 1;
@@ -62,14 +65,14 @@ public class PageActivity extends AppCompatActivity implements View.OnClickListe
         switch (fragment_no){
             case 1:
                 // '프래그먼트1' 호출
-                Fragment1 fragment1 = new Fragment1();
+                Fragment_Online fragment1 = new Fragment_Online();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;
 
             case 2:
                 // '프래그먼트2' 호출
-                Fragment2 fragment2 = new Fragment2();
+                Fragment_Offline fragment2 = new Fragment_Offline();
                 transaction.replace(R.id.fragment_container, fragment2);
                 transaction.commit();
                 break;
