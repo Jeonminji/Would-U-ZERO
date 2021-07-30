@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -72,27 +73,30 @@ public class Fragment_Offline extends Fragment {
         Button btn_refill = (Button) layout.findViewById(R.id.btn_refill);
         Button btn_zero = (Button) layout.findViewById(R.id.btn_zero);
 
+        TextView tv_strcount = (TextView) layout.findViewById(R.id.tv_strcount);
+        tv_strcount.setText("총 " + offlineShops.size() + "개의 매장");
+
         @SuppressLint("NonConstantResourceId") View.OnClickListener clickListener = v -> {
             switch (v.getId()) {
                 case R.id.btn_cafe: {
                     clickedButtonColor(btn_cafe);
                     unclickedButtonColor(btn_refill);
                     unclickedButtonColor(btn_zero);
-                    searchFilter("카페");
+                    searchFilter("카페", tv_strcount);
                     break;
                 }
                 case R.id.btn_refill: {
                     unclickedButtonColor(btn_cafe);
                     clickedButtonColor(btn_refill);
                     unclickedButtonColor(btn_zero);
-                    searchFilter("리필 단일샵");
+                    searchFilter("리필 단일샵", tv_strcount);
                     break;
                 }
                 case R.id.btn_zero: {
                     unclickedButtonColor(btn_cafe);
                     unclickedButtonColor(btn_refill);
                     clickedButtonColor(btn_zero);
-                    searchFilter("제로웨이스트 샵 & 리필");
+                    searchFilter("제로웨이스트 샵 & 리필", tv_strcount);
                     break;
                 }
             }
@@ -110,13 +114,14 @@ public class Fragment_Offline extends Fragment {
         super.onResume();
     }
 
-    public void searchFilter(String searchText) {
+    public void searchFilter(String searchText, TextView tv) {
         filteredList.clear();
 
         for(int i = 0; i < offlineShops.size(); i++) {
             if(offlineShops.get(i).getStore_type().equals(searchText))
                 filteredList.add(offlineShops.get(i));
         }
+        tv.setText("총 " + filteredList.size() + "개의 매장");
 
         adapter.filterList(filteredList);
     }

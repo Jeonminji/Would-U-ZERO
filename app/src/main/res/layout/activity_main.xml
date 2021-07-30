@@ -18,22 +18,25 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/bt_tab1"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="online 상품"
-            app:backgroundTint="#98D15F" />
+            app:backgroundTint="#98D15F"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/bt_tab2"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="offline 매장"
             android:textColor="#98D15F"
