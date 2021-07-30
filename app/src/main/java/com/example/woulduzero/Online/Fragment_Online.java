@@ -1,17 +1,13 @@
 package com.example.woulduzero.Online;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -65,28 +61,13 @@ public class Fragment_Online extends Fragment {
         drawerView = (View)v.findViewById(R.id.drawer);
 
         ImageView btn_open = (ImageView)v.findViewById(R.id.btn_open);
-        btn_open.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(drawerView);
-            }
-        });
+        btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
 
         Button btn_close = (Button)v.findViewById(R.id.btn_close);
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawers();
-            }
-        });
+        btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
 
         drawerLayout.setDrawerListener(listener);
-        drawerView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        drawerView.setOnTouchListener((v3, event) -> true);
 
         //서랍 창에 메인, 서브 카테고리 목록 구현
         createMainCategoryList();
