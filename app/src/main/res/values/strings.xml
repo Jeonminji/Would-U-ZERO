@@ -11,4 +11,10 @@
     <string name="subCategory">하위 카테고리</string>
     <string name="image">이미지</string>
 
+    //offline 화면 strings
+    <string name="offline_category">분류</string>
+    <string name="cafe">카페</string>
+    <string name="refill">리필샵</string>
+    <string name="zero">제로웨이스트샵</string>
+
 </resources>
