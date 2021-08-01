@@ -30,7 +30,7 @@
 
                 <Button
                     android:id="@+id/btn_cafe"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
@@ -80,8 +80,8 @@
             android:id="@+id/tv_strcount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp" />
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

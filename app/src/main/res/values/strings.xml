@@ -16,5 +16,8 @@
     <string name="cafe">카페</string>
     <string name="refill">리필샵</string>
     <string name="zero">제로웨이스트샵</string>
+    <string name="opentime">오픈 시간</string>
+    <string name="onlinegoods">online 상품</string>
+    <string name="offlineshops">offline 매장</string>
 
 </resources>
