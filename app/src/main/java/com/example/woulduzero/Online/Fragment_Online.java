@@ -11,6 +11,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -20,10 +21,12 @@ import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.example.woulduzero.MyExpandableAdapter;
 import com.example.woulduzero.R;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -55,47 +58,9 @@ public class Fragment_Online extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fragment1, container, false);
-
-        //네비게이션 드로어 구현(온라인 카테고리 메뉴 창)
-        drawerLayout = (DrawerLayout)v.findViewById(R.id.drawer_layout);
-        drawerView = (View)v.findViewById(R.id.drawer);
-
-        ImageView btn_open = (ImageView)v.findViewById(R.id.btn_open);
-        btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
-
-        Button btn_close = (Button)v.findViewById(R.id.btn_close);
-        btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
-
-        drawerLayout.setDrawerListener(listener);
-        drawerView.setOnTouchListener((v3, event) -> true);
-
-        //서랍 창에 메인, 서브 카테고리 목록 구현
-        createMainCategoryList();
-        createList();
-        expandableListView = v.findViewById(R.id.category);
-        expandableListAdapter = new MyExpandableAdapter(v.getContext(), mainCategory, categoryList);
-        expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int lastExpandedPosition = -1;
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if(lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
-                    expandableListView.collapseGroup(lastExpandedPosition);
-                lastExpandedPosition = groupPosition;
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                String selected = expandableListAdapter.getChild(groupPosition, childPosition).toString();
-                return true;
-            }
-        });
-
         FirebaseDatabase database = FirebaseDatabase.getInstance(); //firebase 연동
 
-        //이미지 슬라이드
+
         //이미지 슬라이드
         RecyclerView slideView = v.findViewById(R.id.recyclerView_slide_img);
         slideView.setHasFixedSize(true);
@@ -132,7 +97,6 @@ public class Fragment_Online extends Fragment {
 
 
         //전체상품
-        //전체상품 그리드
         // 리사이클러 뷰
         RecyclerView recyclerView = v.findViewById(R.id.recycler_product); //리사이클러뷰 레이아웃 연결
         recyclerView.setHasFixedSize(true); //리사이클러뷰 기존성능 강화
@@ -143,8 +107,8 @@ public class Fragment_Online extends Fragment {
         productArrayList = new ArrayList<>(); //Product 객체 담을 arrayList (adapter 쪽으로)
 
         //db 연동
-        DatabaseReference productDatabaseReference = database.getReference("Product");
-        productDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference productReference = database.getReference("Product");
+        productReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //파이어베이스의 데이터를 받아오는 곳
@@ -163,11 +127,255 @@ public class Fragment_Online extends Fragment {
             }
         });
 
-
-
         //어댑터 설정
         productAdapter = new ProductAdatper(productArrayList, getContext()); //MainActivity 에서는 둘째 argument가 this였음
         recyclerView.setAdapter(productAdapter); //리사이클러뷰에 어댑터 연결
+
+
+        //네비게이션 드로어 구현(온라인 카테고리 메뉴 창)
+        drawerLayout = (DrawerLayout)v.findViewById(R.id.drawer_layout);
+        drawerView = (View)v.findViewById(R.id.drawer);
+
+        ImageView btn_open = (ImageView)v.findViewById(R.id.btn_open);
+        btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
+
+        Button btn_close = (Button)v.findViewById(R.id.btn_close);
+        btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
+
+        drawerLayout.setDrawerListener(listener);
+        drawerView.setOnTouchListener((v3, event) -> true);
+
+        //서랍 창에 메인, 서브 카테고리 목록 구현
+        createMainCategoryList();
+        createList();
+        expandableListView = v.findViewById(R.id.category);
+        expandableListAdapter = new MyExpandableAdapter(v.getContext(), mainCategory, categoryList);
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int lastExpandedPosition = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
+                    expandableListView.collapseGroup(lastExpandedPosition);
+                lastExpandedPosition = groupPosition;
+            }
+        });
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                String selected = expandableListAdapter.getChild(groupPosition, childPosition).toString();
+                productReference.orderByChild("main_category").startAt("가방").endAt("욕").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        Product mainCategory = snapshot.getValue(Product.class);
+                        Query query = productReference.orderByChild("sub_category").startAt("기타").endAt("백");
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                DataSnapshot firstChild = snapshot.getChildren().iterator().next();
+                                productArrayList.clear(); //기존 배열 초기화
+                                for (DataSnapshot categorySnapshot : snapshot.getChildren()) { //반복문으로 data추출
+                                    Product product = categorySnapshot.getValue(Product.class); //만들어 뒀던 Product 객체에 담는다
+                                    productArrayList.add(product); //담은 데이터를 배열에 넣고 리사이클러 뷰에 넣을 준비
+                                }
+                                productAdapter.notifyDataSetChanged(); //리스트 저장 및 새로고침
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                productReference.orderByChild("main_category").startAt("욕실").endAt("의").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                productReference.orderByChild("main_category").startAt("의류").endAt("잡").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                productReference.orderByChild("main_category").startAt("잡화").endAt("주").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                productReference.orderByChild("main_category").startAt("주방").endAt("화").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                productReference.orderByChild("main_category").startAt("화장실").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                return true;
+            }
+        });
+
+        //카테고리 이동
+        productReference.orderByChild("main_category").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         return v;
     }

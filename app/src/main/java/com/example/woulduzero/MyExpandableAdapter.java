@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.List;
 import java.util.Map;
 
@@ -92,3 +94,5 @@ public class MyExpandableAdapter extends BaseExpandableListAdapter {
         return true;
     }
 }
+
+// onClick 구현
