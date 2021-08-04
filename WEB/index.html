@@ -115,7 +115,7 @@
               <div class = "rec_item_txt">추천상품</div>
             </div>
             <div class="rec_item_box5">
-              <?php include('php/recommend_item.php') ?>
+              <?php include('php/index_recommend_item.php') ?>
               <ul class="slides">
                   <?= $recommend_items ?>
               </ul>
@@ -127,7 +127,7 @@
         </div>
     </div>
     <script  src="js\update_click.js"></script>
-    <script  src="js\recommend_item.js"></script>
+    <script  src="js\index_recommend_item.js"></script>
     
   </div>
   <!-- recommend_item_part_end -->
@@ -140,10 +140,17 @@
               <div class = "online_txt">ONLINE</div>
             </div>
             <div class="online_item_box5">
-              <?php include('php/index_online_item.php') ?>
+              <div class = "online_item_box6">
+                <?php include('php/index_online_item.php') ?>
                 <ul class="online_slides">
                   <?= $online_items ?>
                 </ul>
+              </div>
+              <div class = "online_item_box7">
+                <ul class="online_slides2">
+                  <?= $online_items2 ?>
+                </ul>
+              </div>
             </div>
             
           <!-- controler -->
@@ -158,6 +165,7 @@
             </p>
           </div>   
       </div>
+      <script src = "js/index_online_item_move.js"></script>
     </div>
 
     <!-- online_item_part_end -->
