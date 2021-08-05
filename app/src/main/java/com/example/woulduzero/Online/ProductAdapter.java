@@ -17,12 +17,12 @@ import com.example.woulduzero.R;
 
 import java.util.ArrayList;
 
-public class ProductAdatper extends RecyclerView.Adapter<ProductAdatper.ProductViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     private ArrayList<Product> arrayList;
     private Context context;
 
-    public ProductAdatper(ArrayList<Product> arrayList, Context context) {
+    public ProductAdapter(ArrayList<Product> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -58,6 +58,11 @@ public class ProductAdatper extends RecyclerView.Adapter<ProductAdatper.ProductV
     @Override
     public int getItemCount() {
         return (arrayList != null ? arrayList.size() : 0);
+    }
+
+    public void filterList(ArrayList<Product> filteredList) {
+        arrayList = filteredList;
+        notifyDataSetChanged();
     }
 
 
