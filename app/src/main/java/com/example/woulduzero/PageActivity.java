@@ -1,5 +1,6 @@
 package com.example.woulduzero;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,9 +36,13 @@ public class PageActivity extends AppCompatActivity implements View.OnClickListe
         if(button != null && button.equals("offline")) {
             //첫 페이지에서 '오프라인 매장' 클릭 시 오프라인 페이지 이동
             callFragment(FRAGMENT2);
+            unclickedButtonColor(bt_tab1);
+            clickedButtonColor(bt_tab2);
         } else {
             //첫 페이지에서 '온라인 상품' 클릭 시 온라인 페이지 이동
             callFragment(FRAGMENT1);
+            clickedButtonColor(bt_tab1);
+            unclickedButtonColor(bt_tab2);
         }
 
     }
@@ -48,11 +53,15 @@ public class PageActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_tab1:
                 // '버튼1' 클릭 시 '프래그먼트1' 호출
                 callFragment(FRAGMENT1);
+                clickedButtonColor(bt_tab1);
+                unclickedButtonColor(bt_tab2);
                 break;
 
             case R.id.bt_tab2 :
                 // '버튼2' 클릭 시 '프래그먼트2' 호출
                 callFragment(FRAGMENT2);
+                unclickedButtonColor(bt_tab1);
+                clickedButtonColor(bt_tab2);
                 break;
         }
     }
@@ -77,5 +86,16 @@ public class PageActivity extends AppCompatActivity implements View.OnClickListe
                 transaction.commit();
                 break;
         }
+    }
+
+
+    public void clickedButtonColor(Button b) {
+        b.setTextColor(Color.parseColor("#FF98D15F"));
+        b.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+    }
+
+    public void unclickedButtonColor(Button b) {
+        b.setTextColor(Color.parseColor("#FFFFFFFF"));
+        b.setBackgroundColor(Color.parseColor("#FF98D15F"));
     }
 }

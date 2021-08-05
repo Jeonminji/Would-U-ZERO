@@ -32,13 +32,14 @@ public class Fragment_Offline extends Fragment {
         // Required empty public constructor
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) { // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_fragment2, container, false);
 
         // 리사이클러뷰 초기화
-        RecyclerView recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = layout.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this.getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
@@ -68,13 +69,12 @@ public class Fragment_Offline extends Fragment {
                 Log.e("Fragment_Offline", String.valueOf(error.toException()));
             }
         });
-
-        Button btn_cafe = (Button) layout.findViewById(R.id.btn_cafe);
-        Button btn_refill = (Button) layout.findViewById(R.id.btn_refill);
-        Button btn_zero = (Button) layout.findViewById(R.id.btn_zero);
-
-        TextView tv_strcount = (TextView) layout.findViewById(R.id.tv_strcount);
+        TextView tv_strcount = layout.findViewById(R.id.tv_strcount);
         tv_strcount.setText("총 " + offlineShops.size() + "개의 매장");
+
+        Button btn_cafe = layout.findViewById(R.id.btn_cafe);
+        Button btn_refill = layout.findViewById(R.id.btn_refill);
+        Button btn_zero = layout.findViewById(R.id.btn_zero);
 
         @SuppressLint("NonConstantResourceId") View.OnClickListener clickListener = v -> {
             switch (v.getId()) {
@@ -89,14 +89,14 @@ public class Fragment_Offline extends Fragment {
                     unclickedButtonColor(btn_cafe);
                     clickedButtonColor(btn_refill);
                     unclickedButtonColor(btn_zero);
-                    searchFilter("리필 단일샵", tv_strcount);
+                    searchFilter("리필", tv_strcount);
                     break;
                 }
                 case R.id.btn_zero: {
                     unclickedButtonColor(btn_cafe);
                     unclickedButtonColor(btn_refill);
                     clickedButtonColor(btn_zero);
-                    searchFilter("제로웨이스트 샵 & 리필", tv_strcount);
+                    searchFilter("제로", tv_strcount);
                     break;
                 }
             }
@@ -118,7 +118,7 @@ public class Fragment_Offline extends Fragment {
         filteredList.clear();
 
         for(int i = 0; i < offlineShops.size(); i++) {
-            if(offlineShops.get(i).getStore_type().equals(searchText))
+            if(offlineShops.get(i).getStore_type().contains(searchText))
                 filteredList.add(offlineShops.get(i));
         }
         tv.setText("총 " + filteredList.size() + "개의 매장");

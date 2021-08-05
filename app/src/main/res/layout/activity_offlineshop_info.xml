@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="vertical">
 
@@ -27,7 +27,8 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onArrowLeftClicked"
-                app:srcCompat="@drawable/arrow" />
+                app:srcCompat="@drawable/arrow_left"
+                tools:ignore="NestedWeights,UsingOnClickInXml" />
 
             <FrameLayout
                 android:id="@+id/frameLayout"
@@ -61,7 +62,7 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onArrowRightClicked"
-                app:srcCompat="@drawable/arrow_left" />
+                app:srcCompat="@drawable/arrow_right" />
 
         </LinearLayout>
 
@@ -90,7 +91,7 @@
                 android:id="@+id/ib_insta"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:layout_marginEnd="60dp"
                 android:layout_marginRight="60dp"
                 android:layout_weight="1"
@@ -100,7 +101,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/insta" />
+                app:srcCompat="@drawable/insta"
+                android:contentDescription="TODO" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -111,7 +113,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
-            android:text="오픈 시간"
+            android:text="@string/opentime"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginEnd="60dp"
