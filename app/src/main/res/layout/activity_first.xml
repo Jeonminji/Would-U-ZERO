@@ -42,11 +42,12 @@
             android:layout_marginBottom="55dp"/>
 
         <ImageView
-            android:layout_width="235dp"
-            android:layout_height="235dp"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
             android:layout_gravity="center"
-            android:src="@drawable/fearth"
-            android:layout_marginTop="75dp"/>
+            android:src="@drawable/planet"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"/>
 
     </FrameLayout>
 

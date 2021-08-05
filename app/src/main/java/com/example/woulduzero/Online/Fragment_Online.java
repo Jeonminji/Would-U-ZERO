@@ -88,9 +88,14 @@ public class Fragment_Online extends Fragment {
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                String selected = expandableListAdapter.getChild(groupPosition, childPosition).toString();
+                String selected = expandableListAdapter.getGroup(groupPosition).toString()
+                        + expandableListAdapter.getChild(groupPosition, childPosition).toString();
+
+                Log.d(getTag(), selected);
+
                 return true;
             }
+
         });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance(); //firebase 연동
