@@ -10,7 +10,7 @@
     height: 350px;
     display: inline-block;
     margin: 25px;
-   
+
 }
 .home_cate_list_box3{
     width: 100%;
@@ -47,6 +47,7 @@
     width: 200px;
     height: 200px;
     border-radius: 70%;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.3);
 }
 .home_cate_list_title{
     font-size: 20px;

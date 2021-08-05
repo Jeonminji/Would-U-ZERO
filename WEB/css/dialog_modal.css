@@ -20,7 +20,7 @@
     background-color: white;
     box-shadow:  0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     width: 1300px;
-    height: 700px;
+    height: 600px;
     border-radius: 10px;
     position: relative;
     display: flex;
@@ -32,13 +32,127 @@
     display: none;
 }
 
-.more_info_map{
-    width: 650px;
-    height: 700px;
-    border : solid 1px pink;
+.more_info_img_box{
+    width:650px;
+    height: 600px;
+    text-align: center;
+    position: relative;
 }
+
+.modal_slide_box { 
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    position: relative;
+    margin: 45px;
+    overflow: hidden;
+}
+.modal_slide_list{
+    position:absolute;
+    height: 100%;
+    left:0; 
+    top:0;
+    width: 1500px;
+}
+.modal_slide_list.animated{
+    transition:  0.5s ease-out;
+}
+.modal_slide_content { 
+    
+    float: left; 
+    width: 500px; 
+    height: 500px; 
+}
+.modal_slide_content img{ 
+    width: 100%; 
+    height: 100%; 
+}
+
+.controls span.modal_img_prev{
+    left: 20px;
+}
+
+.controls span.modal_img_next{
+    right: 20px;
+}
+
+
+
 .more_info{
     width: 650px;
-    height: 700px;
-    border : solid 1px blue;
+    height: 600px;
+}
+.more_info_map{
+    width: 650px;
+    height: 300px;
+    text-align: center;
+
+}
+.modal_map{
+    width: 600px;
+    height: 250px;
+    display: inline-block;
+    margin: 25px;
+}
+.more_info_contents{
+    width:100%;
+    height: 300px;
+}
+.more_info_contents div{
+    width: 100%;
+    height: 50px;
+}
+.more_info_contents div span i{
+    color: var(--text-color);
+}
+
+.modal_name{
+    font-size: 1.5em;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.modal_address span{
+    margin-left: 20px;
+}
+.modal_address_txt{
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.modal_opening_hours span{
+    margin-left: 17px;
+}
+.modal_opening_hours_txt{
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.modal_store_number span{
+    margin-left: 22px;
+}
+.modal_number_txt{
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.modal_instargram{
+    margin-left: 20px;
+}
+
+.instargram_txt{
+    font-size: 1em;
+    margin-left: 20px;
+    color: black;
+}
+.modal_etc{
+    float:left;
+}
+.modal_etc span{
+    margin-left: 18px;
+}
+
+.modal_etc_txt{
+    margin-top: -20px;
+    margin-left: 55px;
 }

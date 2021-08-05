@@ -7,7 +7,14 @@
 
     while($row = mysqli_fetch_array($result)){
         $name = $row['name'];
-        $price = substr_replace($row['price'],',',-6,0);
+        $price_string_count = strlen($row['price']);
+        if($price_string_count > 6){
+          $price = substr_replace($row['price'],',',-6,0);
+        }
+        else{
+          $price = $row['price'];
+        }
+        
         $recommend_items .= '<li class = "rec_item">
                               <div class = "item_box">
                                 <div class = "slide_img_box">

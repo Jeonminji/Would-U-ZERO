@@ -4,53 +4,43 @@
     display: flex;
     /* text-align: center; */
     justify-content: center;
-    align-items: center;
-    border: solid 1px black;
-    
+    align-items: center;    
 }
 .off_box2{
     width: 1700px;
     height: 100%;
-    border: solid 2px green;
     text-align: center;
     
 }
 .off_box3{
     width: 1500px;
-    height: 700px;
+    height: 730px;
     display: inline-block;
     position: relative;
-    border: solid 2px black;
     margin: 40px;
-    /* overflow: hidden; */
-    /* text-align: center; */
-
 }
 .off_box4{
     width:100%;
     height: 50px;
-    border: solid 1.5px red;
 }
 .off_txt{
     width: 200px;
     height: 100%;
     font-size: 2em;
     font-weight: bold;
-    border: solid 1px blue;
     padding: 5px 20px;
-    /* text-align: center; */
 }
 .off_box5{
     width: 1300px;
     height: 600px;
     display: inline-block;
     position: relative;
-    border: solid 2px pink;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 .off_box6{
     width: 400px;
     height: 100%;
-    border: solid 1px greenyellow;
     float: left;
     overflow-y: scroll;
     top:0;
@@ -97,13 +87,11 @@
 .off_box7{
     width: 890px;
     height: 100%;
-    border: solid 1px red;
     float: left;
 }
 .off_map{
     width: 100%;
     height: 400px;
-    border: solid 1px blue;
     text-align: center;
 }
 #map{
@@ -115,14 +103,12 @@
 .off_info{
     width:100%;
     height: 200px;
-    border: solid 1px orange;
 }
 
 .off_info div{
     width: 100%;
     height: 30%;
     font-size: 20px;
-    border: solid 1px blanchedalmond;
     display: table;
 }
 .off_info div span{

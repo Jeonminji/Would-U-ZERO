@@ -17,7 +17,6 @@
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	acbd7d93f0734d392c1fb627ff0cd725&libraries=services,clusterer,drawing"></script>
       <script   src="http://code.jquery.com/jquery-latest.min.js"></script>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-      <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
   </head>
   <body>
     <!-- header -->
@@ -201,21 +200,84 @@
                 </div>        
               </div>
             </div>
+            <p class = "online_page_skip">
+              <a href = "offline.html">
+                <span class = "online_skip_butten">더보기</span>
+              </a>
+            </p>
         </div>     
       </div>
       <script src = "js/index_map.js"></script>
-      <script src = "js/off_click.js"></script>
     </div>
 
     <!-- 모달창 -->
     <div class="modal hidden">
       <div class="modal_overlay"></div>
       <div class="modal_contant">
-        <div class = "more_info_map"></div>
-        <div class = "more_info"></div>
+        <div class = "more_info_img_box">
+          <div class="modal_slide_box">
+            <ul class="modal_slide_list clearfix">
+              <li class="modal_slide_content slide01">
+                <img src = "">
+              </li>
+              <li class="modal_slide_content slide02">
+                <img src = "">
+              </li>
+              <li class="modal_slide_content slide03">
+                <img src = "">
+              </li>
+      
+            </ul>
+          </div>
+          <p class ="controls">
+            <span class="modal_img_prev"><i class="fas fa-chevron-left fa-2x"></i></span>
+            <span class="modal_img_next"><i class="fas fa-chevron-right fa-2x"></i></span>
+          </p>
+          
+        </div>
+        <div class = "more_info">
+
+          <div class = "more_info_map">
+            <div class = "modal_map"></div>
+          </div>
+          <div class = "more_info_contents">
+            <div class ="modal_off_name">
+              <span class = "modal_name"></span>
+            </div>
+            <div class = "modal_address">
+              <span><i class="fas fa-map-marker-alt "></i></span>
+              <span class = "modal_address_txt"></span>
+            </div>
+            <div class = "modal_opening_hours">
+              <span><i class="far fa-clock "></i></span>
+              <span class = "modal_opening_hours_txt"></span>
+            </div>
+            <div class = "modal_store_number">
+              <span><i class="fas fa-mobile-alt"></i></span>
+              <span class = "modal_number_txt"></span>
+            </div>
+            <div>
+              <span class = "modal_instargram">
+                <a href = "">
+                  <i class="fab fa-instagram "></i>
+                  <span class = "instargram_txt">
+                    INSTARGRAM
+                  </span>
+                </a>
+              </span> 
+            </div>
+            <div class = "modal_etc">
+              <span><i class="fas fa-info-circle"></i></span>
+              <blockquote class = "modal_etc_txt"></blockquote>
+            </div>
+            
+          </div>
+        </div>
+      <script src = "js/index_modal_map.js"></script>
       </div>
     </div>
-    <script src = "js/modal.js"></script>
-
+    <script src = "js/index_modal.js"></script>
+    <script src = "js/index_off_click.js"></script>
+    <script src = "js/index_modal_img_move.js"></script>
   </body>
 </html>
