@@ -163,6 +163,7 @@ public class Fragment_Online extends Fragment {
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                filteredList = new ArrayList<>();
                 String mainCategory = expandableListAdapter.getGroup(groupPosition).toString();
                 String subCategory = expandableListAdapter.getChild(groupPosition, childPosition).toString();
                 Log.d(getTag(), mainCategory + subCategory);
