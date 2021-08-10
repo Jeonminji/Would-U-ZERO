@@ -37,7 +37,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        //product link를 어떻게 가져올지..
         Product item = arrayList.get(position);
 
         Glide.with(holder.itemView)
@@ -46,8 +45,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.product_name.setText(arrayList.get(position).getName());
         holder.product_brand.setText(arrayList.get(position).getSiteName());
         holder.product_price.setText(arrayList.get(position).getPrice());
-        holder.product_uppercategory.setText(arrayList.get(position).getMain_category());
-        holder.product_lowercategory.setText(arrayList.get(position).getSub_category());
+        holder.product_mainCategory.setText(arrayList.get(position).getMain_category());
+        holder.product_subCategory.setText(arrayList.get(position).getSub_category());
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getLink()));
@@ -66,13 +65,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView img_view;
         TextView product_name;
         TextView product_brand;
         TextView product_price;
-        TextView product_uppercategory;
-        TextView product_lowercategory;
+        TextView product_mainCategory;
+        TextView product_subCategory;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,8 +80,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             this.product_name = itemView.findViewById(R.id.text_product_name);
             this.product_brand = itemView.findViewById(R.id.text_product_brand);
             this.product_price = itemView.findViewById(R.id.text_product_price);
-            this.product_lowercategory = itemView.findViewById(R.id.product_subcategory);
-            this.product_uppercategory = itemView.findViewById(R.id.product_maincategory);
+            this.product_subCategory = itemView.findViewById(R.id.product_subcategory);
+            this.product_mainCategory = itemView.findViewById(R.id.product_maincategory);
 
 
         }

@@ -1,5 +1,6 @@
 package com.example.woulduzero.Online;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +12,6 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -20,14 +20,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.woulduzero.MyExpandableAdapter;
 import com.example.woulduzero.R;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +47,13 @@ public class Fragment_Online extends Fragment {
 
     //화면
     private SliderAdapter slideAdapter;
-    private ArrayList<ImageSlide> slideArrayList;
+    private ArrayList<ImageSlide> slideArrayList, recommendList;
 
     private ProductAdapter productAdapter;
     private ArrayList<Product> productArrayList, filteredList;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,9 +70,10 @@ public class Fragment_Online extends Fragment {
         RecyclerView.LayoutManager slideLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         slideView.setLayoutManager(slideLayoutManager);
         slideArrayList = new ArrayList<>();
+        recommendList = new ArrayList<>();
 
         //db연동
-        DatabaseReference slideDatabaseReference = database.getReference("Recommend");
+        DatabaseReference slideDatabaseReference = database.getReference("Product");
         slideDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -79,6 +82,11 @@ public class Fragment_Online extends Fragment {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) { //반복문으로 data추출
                     ImageSlide image = snapshot.getValue(ImageSlide.class); //만들어 뒀던 ImageSlide 객체에 담는다
                     slideArrayList.add(image); //담은 데이터를 배열에 넣고 리사이클러 뷰에 넣을 준비
+                }
+                recommendList.clear();
+                for(int i = 0; i < 5; i++) {
+                    int genNum = (int) ((Math.random() * 100) % 908);
+                    recommendList.add(slideArrayList.get(genNum));
                 }
                 slideAdapter.notifyDataSetChanged(); //리스트 저장 및 새로고침
             }
@@ -90,8 +98,9 @@ public class Fragment_Online extends Fragment {
             }
         });
 
+
         //어댑터 설정
-        slideAdapter = new SliderAdapter(slideArrayList, getContext());
+        slideAdapter = new SliderAdapter(recommendList, getContext());
         slideView.setAdapter(slideAdapter);
 
 
@@ -131,13 +140,13 @@ public class Fragment_Online extends Fragment {
 
         //서랍
         //네비게이션 드로어 구현(온라인 카테고리 메뉴 창)
-        drawerLayout = (DrawerLayout) v.findViewById(R.id.drawer_layout);
-        drawerView = (View) v.findViewById(R.id.drawer);
+        drawerLayout = v.findViewById(R.id.drawer_layout);
+        drawerView = v.findViewById(R.id.drawer);
 
-        ImageView btn_open = (ImageView) v.findViewById(R.id.btn_open);
+        ImageView btn_open = v.findViewById(R.id.btn_open);
         btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
 
-        Button btn_close = (Button) v.findViewById(R.id.btn_close);
+        Button btn_close = v.findViewById(R.id.btn_close);
         btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
 
         drawerLayout.setDrawerListener(listener);
@@ -160,46 +169,15 @@ public class Fragment_Online extends Fragment {
             }
         });
 
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                filteredList = new ArrayList<>();
-                String mainCategory = expandableListAdapter.getGroup(groupPosition).toString();
-                String subCategory = expandableListAdapter.getChild(groupPosition, childPosition).toString();
-                Log.d(getTag(), mainCategory + subCategory);
+        expandableListView.setOnChildClickListener((parent, v12, groupPosition, childPosition, id) -> {
+            filteredList = new ArrayList<>();
+            String mainCategory = expandableListAdapter.getGroup(groupPosition).toString();
+            String subCategory = expandableListAdapter.getChild(groupPosition, childPosition).toString();
+            Log.d(getTag(), mainCategory + subCategory);
 
-                searchFilter(mainCategory,subCategory);
+            searchFilter(mainCategory,subCategory);
 
-                return true;
-            }
-        });
-
-        //카테고리 이동
-        productReference.orderByChild("main_category").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            return true;
         });
 
         return v;
@@ -225,21 +203,29 @@ public class Fragment_Online extends Fragment {
         String[] list5 = {"악세사리", "지갑", "케이스", "기타"};
         String[] list6 = {"기초", "색조", "기타"};
 
-        categoryList = new HashMap<String, List<String>>();
+        categoryList = new HashMap<>();
 
         for (String main : mainCategory) {
-            if (main.equals("주방"))
-                loadSub(list1);
-            else if (main.equals("욕실"))
-                loadSub(list2);
-            else if (main.equals("의류"))
-                loadSub(list3);
-            else if (main.equals("가방"))
-                loadSub(list4);
-            else if (main.equals("잡화"))
-                loadSub(list5);
-            else
-                loadSub(list6);
+            switch (main) {
+                case "주방":
+                    loadSub(list1);
+                    break;
+                case "욕실":
+                    loadSub(list2);
+                    break;
+                case "의류":
+                    loadSub(list3);
+                    break;
+                case "가방":
+                    loadSub(list4);
+                    break;
+                case "잡화":
+                    loadSub(list5);
+                    break;
+                default:
+                    loadSub(list6);
+                    break;
+            }
 
             categoryList.put(main, subCategory);
         }
@@ -248,8 +234,7 @@ public class Fragment_Online extends Fragment {
 
     private void loadSub(String[] subList) {
         subCategory = new ArrayList<>();
-        for (String sub : subList)
-            subCategory.add(sub);
+        Collections.addAll(subCategory, subList);
     }
 
     private void createMainCategoryList() {
