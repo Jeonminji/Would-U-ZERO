@@ -106,6 +106,7 @@ public class Fragment_Offline extends Fragment {
         layout.findViewById(R.id.btn_refill).setOnClickListener(clickListener);
         layout.findViewById(R.id.btn_zero).setOnClickListener(clickListener);
 
+
         return layout;
     }
 
@@ -114,13 +115,15 @@ public class Fragment_Offline extends Fragment {
         super.onResume();
     }
 
+    @SuppressLint("SetTextI18n")
     public void searchFilter(String searchText, TextView tv) {
         filteredList.clear();
 
-        for(int i = 0; i < offlineShops.size(); i++) {
-            if(offlineShops.get(i).getStore_type().contains(searchText))
+        for (int i = 0; i < offlineShops.size(); i++) {
+            if (offlineShops.get(i).getStore_type().contains(searchText))
                 filteredList.add(offlineShops.get(i));
         }
+
         tv.setText("총 " + filteredList.size() + "개의 매장");
 
         adapter.filterList(filteredList);
