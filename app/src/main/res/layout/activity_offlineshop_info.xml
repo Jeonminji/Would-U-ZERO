@@ -21,6 +21,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:contentDescription="@string/StringValue"
                 android:id="@+id/ib_left"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
@@ -37,12 +38,14 @@
                 android:layout_weight="3">
 
                 <ImageView
+                    android:contentDescription="@string/StringValue"
                     android:id="@+id/iv_1"
                     android:scaleType="centerCrop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <ImageView
+                    android:contentDescription="@string/StringValue"
                     android:id="@+id/iv_2"
                     android:scaleType="centerCrop"
                     android:layout_width="match_parent"
@@ -50,6 +53,7 @@
                     android:visibility="invisible" />
 
                 <ImageView
+                    android:contentDescription="@string/StringValue"
                     android:id="@+id/iv_3"
                     android:scaleType="centerCrop"
                     android:layout_width="match_parent"
@@ -59,13 +63,15 @@
             </FrameLayout>
 
             <ImageButton
+                android:contentDescription="@string/StringValue"
                 android:id="@+id/ib_right"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onArrowRightClicked"
-                app:srcCompat="@drawable/arrow_right" />
+                app:srcCompat="@drawable/arrow_right"
+                tools:ignore="UsingOnClickInXml" />
 
         </LinearLayout>
 
@@ -91,6 +97,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
+                android:contentDescription="@string/StringValue"
                 android:id="@+id/ib_insta"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -138,9 +145,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
-            android:text="주소"
+            android:text="@string/address"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="60dp" />
 
         <TextView
             android:id="@+id/tv_ad"
@@ -159,9 +168,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
-            android:text="분류"
+            android:text="@string/category"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="45dp" />
 
         <TextView
             android:id="@+id/tv_type"
@@ -180,9 +191,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
-            android:text="전화번호"
+            android:text="@string/phonenumber"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="45dp" />
 
         <TextView
             android:id="@+id/tv_pn"
@@ -194,7 +207,6 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:textColor="#2196F3" />
 
         <TextView
@@ -205,9 +217,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
-            android:text="추가 정보"
+            android:text="@string/otherinfo"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="60dp" />
 
         <TextView
             android:id="@+id/tv_info"
