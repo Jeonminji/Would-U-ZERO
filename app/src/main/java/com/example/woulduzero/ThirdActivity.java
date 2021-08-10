@@ -1,6 +1,7 @@
 package com.example.woulduzero; //첫 페이지
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -10,11 +11,19 @@ public class ThirdActivity extends AppCompatActivity {
 
     Button btn_online;
     Button btn_offline;
+    Button btn_moreInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+        //more info button
+        btn_moreInfo = (findViewById(R.id.btn_moreinfo));
+        btn_moreInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
+            startActivity(intent);
+        });
 
         btn_online = (Button)findViewById(R.id.btn_online);
         btn_offline = (Button)findViewById(R.id.btn_offline);

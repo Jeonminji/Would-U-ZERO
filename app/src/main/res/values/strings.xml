@@ -1,5 +1,19 @@
 <resources>
-    <string name="app_name">WouldUZero</string>
+    <string name="app_name">Would U Zero</string>
+    <string name="more_info">more info</string>
+
+    //start 화면 strings
+    <string name="행동수칙">제로웨이스트 행동 수칙</string>
+    <string name="행동수칙1">1. 있는 물건 최대한 활용하기</string>
+    <string name="행동수칙2">2. 필요한 물건은 중고/업사이클링 구매하기</string>
+    <string name="행동수칙3">3. 일회용품 사용 줄이기</string>
+    <string name="행동수칙4">4. 세제, 샴푸 등 생필품들 리필해서 사용하기</string>
+    <string name="행동수칙5">5. 배출되는 쓰레기 모니터링 하기</string>
+    <string name="행동수칙6">6. 배달 음식/온라인 쇼핑 줄이기</string>
+    <string name="startZeroLife">제로웨이스트 라이프, 시작해볼까요?</string>
+
+    <string name="start_onlineProduct">온라인 상품</string>
+    <string name="start_offlineShop">오프라인 매장</string>
 
     //online 화면 strings
     <string name="product_name">상품이름</string>
