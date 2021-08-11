@@ -24,6 +24,7 @@
     <string name="mainCategory">상위 카테고리</string>
     <string name="subCategory">하위 카테고리</string>
     <string name="image">이미지</string>
+    <string name="WouldUZero">Would U Zero</string>
 
     //offline 화면 strings
     <string name="offline_category">분류</string>
