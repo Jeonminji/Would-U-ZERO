@@ -5,8 +5,4 @@
         android:fontWeight="400"
         android:font="@font/koolbean"/>
 
-    <font
-        android:font="@font/happyfruit"
-        android:fontWeight="400"
-        android:fontStyle="normal"/>
 </font-family>
