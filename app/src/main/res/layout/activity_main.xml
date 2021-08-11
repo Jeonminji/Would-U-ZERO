@@ -11,8 +11,9 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="712dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/linearLayout"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="1dp" />
 
     <LinearLayout

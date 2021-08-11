@@ -11,15 +11,16 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.example.woulduzero.MyExpandableAdapter;
 import com.example.woulduzero.R;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,58 +45,21 @@ public class Fragment_Online extends Fragment {
     ExpandableListAdapter expandableListAdapter;
 
     //화면
-    private Adapter slideAdapter;
+    private SliderAdapter slideAdapter;
     private ArrayList<ImageSlide> slideArrayList;
 
-    private Adapter productAdapter;
-    private ArrayList<Product> productArrayList;
+    private ProductAdapter productAdapter;
+    private ArrayList<Product> productArrayList, filteredList;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fragment1, container, false);
-
-        //네비게이션 드로어 구현(온라인 카테고리 메뉴 창)
-        drawerLayout = (DrawerLayout)v.findViewById(R.id.drawer_layout);
-        drawerView = (View)v.findViewById(R.id.drawer);
-
-        ImageView btn_open = (ImageView)v.findViewById(R.id.btn_open);
-        btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
-
-        Button btn_close = (Button)v.findViewById(R.id.btn_close);
-        btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
-
-        drawerLayout.setDrawerListener(listener);
-        drawerView.setOnTouchListener((v3, event) -> true);
-
-        //서랍 창에 메인, 서브 카테고리 목록 구현
-        createMainCategoryList();
-        createList();
-        expandableListView = v.findViewById(R.id.category);
-        expandableListAdapter = new MyExpandableAdapter(v.getContext(), mainCategory, categoryList);
-        expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int lastExpandedPosition = -1;
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if(lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
-                    expandableListView.collapseGroup(lastExpandedPosition);
-                lastExpandedPosition = groupPosition;
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                String selected = expandableListAdapter.getChild(groupPosition, childPosition).toString();
-                return true;
-            }
-        });
-
         FirebaseDatabase database = FirebaseDatabase.getInstance(); //firebase 연동
 
-        //이미지 슬라이드
+
+        //전체상품
         //이미지 슬라이드
         RecyclerView slideView = v.findViewById(R.id.recyclerView_slide_img);
         slideView.setHasFixedSize(true);
@@ -131,8 +95,6 @@ public class Fragment_Online extends Fragment {
         slideView.setAdapter(slideAdapter);
 
 
-        //전체상품
-        //전체상품 그리드
         // 리사이클러 뷰
         RecyclerView recyclerView = v.findViewById(R.id.recycler_product); //리사이클러뷰 레이아웃 연결
         recyclerView.setHasFixedSize(true); //리사이클러뷰 기존성능 강화
@@ -143,8 +105,8 @@ public class Fragment_Online extends Fragment {
         productArrayList = new ArrayList<>(); //Product 객체 담을 arrayList (adapter 쪽으로)
 
         //db 연동
-        DatabaseReference productDatabaseReference = database.getReference("Product");
-        productDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference productReference = database.getReference("Product");
+        productReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //파이어베이스의 데이터를 받아오는 곳
@@ -163,13 +125,69 @@ public class Fragment_Online extends Fragment {
             }
         });
 
-
-
         //어댑터 설정
-        productAdapter = new ProductAdatper(productArrayList, getContext()); //MainActivity 에서는 둘째 argument가 this였음
+        productAdapter = new ProductAdapter(productArrayList, this.getContext()); //MainActivity 에서는 둘째 argument가 this였음
         recyclerView.setAdapter(productAdapter); //리사이클러뷰에 어댑터 연결
 
+        //서랍
+        //네비게이션 드로어 구현(온라인 카테고리 메뉴 창)
+        drawerLayout = (DrawerLayout) v.findViewById(R.id.drawer_layout);
+        drawerView = (View) v.findViewById(R.id.drawer);
+
+        ImageView btn_open = (ImageView) v.findViewById(R.id.btn_open);
+        btn_open.setOnClickListener(v1 -> drawerLayout.openDrawer(drawerView));
+
+        Button btn_close = (Button) v.findViewById(R.id.btn_close);
+        btn_close.setOnClickListener(v2 -> drawerLayout.closeDrawers());
+
+        drawerLayout.setDrawerListener(listener);
+        drawerView.setOnTouchListener((v3, event) -> true);
+
+        //서랍 창에 메인, 서브 카테고리 목록 구현
+        createMainCategoryList();
+        createList();
+        expandableListView = v.findViewById(R.id.category);
+        expandableListAdapter = new MyExpandableAdapter(v.getContext(), mainCategory, categoryList);
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int lastExpandedPosition = -1;
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if (lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
+                    expandableListView.collapseGroup(lastExpandedPosition);
+                lastExpandedPosition = groupPosition;
+            }
+        });
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                filteredList = new ArrayList<>();
+                String mainCategory = expandableListAdapter.getGroup(groupPosition).toString();
+                String subCategory = expandableListAdapter.getChild(groupPosition, childPosition).toString();
+                Log.d(getTag(), mainCategory + subCategory);
+
+                searchFilter(mainCategory,subCategory);
+
+                return true;
+            }
+        });
+
         return v;
+    }
+
+    public void searchFilter(String main_category, String sub_category) {
+        filteredList.clear();
+
+        for(int i = 0; i < productArrayList.size(); i++) {
+            if(productArrayList.get(i).getMain_category().contains(main_category)
+                    && productArrayList.get(i).getSub_category().contains(sub_category))
+                filteredList.add(productArrayList.get(i));
+        }
+
+        productAdapter.filterList(filteredList);
+        drawerLayout.close();
     }
 
     private void createList() {
@@ -182,8 +200,8 @@ public class Fragment_Online extends Fragment {
 
         categoryList = new HashMap<String, List<String>>();
 
-        for(String main : mainCategory) {
-            if(main.equals("주방"))
+        for (String main : mainCategory) {
+            if (main.equals("주방"))
                 loadSub(list1);
             else if (main.equals("욕실"))
                 loadSub(list2);
@@ -203,7 +221,7 @@ public class Fragment_Online extends Fragment {
 
     private void loadSub(String[] subList) {
         subCategory = new ArrayList<>();
-        for(String sub : subList)
+        for (String sub : subList)
             subCategory.add(sub);
     }
 
@@ -239,7 +257,6 @@ public class Fragment_Online extends Fragment {
 
         }
     };
-
 
 
 }

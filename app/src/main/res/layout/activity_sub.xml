@@ -19,7 +19,7 @@
         android:text="깨끗한 지구를 향해"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"/>
 
     <TextView
         android:layout_width="wrap_content"
