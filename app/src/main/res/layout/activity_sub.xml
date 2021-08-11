@@ -29,5 +29,11 @@
         android:textStyle="bold"
         android:layout_gravity="center" />
 
+    <ImageView
+        android:id="@+id/loading"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loading"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>

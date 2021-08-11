@@ -13,11 +13,11 @@
         app:cardElevation="4dp">
 
         <ImageView
-        android:id="@+id/iv_img"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:src="@drawable/ic_launcher_background"
+            android:id="@+id/iv_img"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:src="@drawable/ic_launcher_background"
             android:contentDescription="@string/StringValue"/>
 
         <LinearLayout
@@ -34,30 +34,30 @@
             android:paddingStart="16dp"
             android:paddingEnd="8dp">
 
-                <TextView
-                    android:id="@+id/tv_storename"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:textSize="13sp"/>
+            <TextView
+                android:id="@+id/tv_storename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"/>
 
-                <TextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
 
-                <TextView
-                    android:id="@+id/tv_storetype"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_storetype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
 
         </LinearLayout>
 

@@ -29,15 +29,15 @@ public class ThirdActivity extends AppCompatActivity {
         btn_offline = (Button)findViewById(R.id.btn_offline);
 
         btn_online.setOnClickListener(v -> {
-                Intent intent = new Intent(this, PageActivity.class);
-                intent.putExtra("Button", "online");
-                startActivity(intent);
+            Intent intent = new Intent(this, PageActivity.class);
+            intent.putExtra("Button", "online");
+            startActivity(intent);
         });
 
         btn_offline.setOnClickListener(v -> {
-                Intent intent = new Intent(this, PageActivity.class);
-                intent.putExtra("Button", "offline");
-                startActivity(intent);
+            Intent intent = new Intent(this, PageActivity.class);
+            intent.putExtra("Button", "offline");
+            startActivity(intent);
         });
     }
 }

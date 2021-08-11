@@ -12,7 +12,8 @@
     <ScrollView
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -36,7 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp" />
+                android:paddingEnd="20dp"
+                android:overScrollMode="never"/>
 
             <TextView
                 android:id="@+id/text_whole_item"
@@ -51,11 +53,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_product"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:paddingBottom="50dp"/>
+                android:paddingBottom="50dp"
+                android:overScrollMode="never" />
 
         </LinearLayout>
 

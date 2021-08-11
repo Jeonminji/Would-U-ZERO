@@ -16,7 +16,7 @@
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="17sp"
-        android:backgroundTint="@color/button_background"
+        android:backgroundTint="@color/WUZ"
         android:layout_margin="10dp"/>
 
     <ExpandableListView

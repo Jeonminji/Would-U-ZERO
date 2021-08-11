@@ -107,8 +107,7 @@
         android:text="@string/more_info"
         android:textColor="@color/WUZ"
         android:layout_gravity="end"
-        style="?android:attr/borderlessButtonStyle"
-        />
+        style="?android:attr/borderlessButtonStyle" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -132,8 +131,12 @@
             android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="18sp"
-            app:backgroundTint="@color/button_background"
-            android:layout_marginTop="10dp"/>
+            app:backgroundTint="@color/WUZ"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/online_product"
+            android:drawableTint="@color/white"
+            android:paddingLeft="60dp"/>
 
         <Button
             android:id="@+id/btn_offline"
@@ -143,8 +146,11 @@
             android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="18sp"
-            app:backgroundTint="@color/button_background"
-
+            app:backgroundTint="@color/WUZ"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/offline_shop"
+            android:drawableTint="@color/white"
+            android:paddingLeft="55dp"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>
