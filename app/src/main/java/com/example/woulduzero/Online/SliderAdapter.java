@@ -18,7 +18,6 @@ import com.example.woulduzero.R;
 import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
-    private static final String TAG = "SliderAdapter";
 
     private List<ImageSlide> sliderItems;
     private Context context;
@@ -60,7 +59,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         return (sliderItems != null ? sliderItems.size() : 0);
     }
 
-    public class SliderViewHolder extends RecyclerView.ViewHolder {
+    public static class SliderViewHolder extends RecyclerView.ViewHolder {
 
         ImageView img_slide;
         TextView text_siteName;

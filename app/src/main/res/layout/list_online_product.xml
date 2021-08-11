@@ -2,21 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_online_product"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
+        android:layout_height="280dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <ImageView
@@ -46,7 +46,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_siteName"
-                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textSize="14sp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"/>
             <TextView
@@ -54,20 +55,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_name"
-                android:textSize="18sp"
+                android:textSize="13sp"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp" />
-            <TextView
-                android:id="@+id/text_product_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_price"
-                android:textSize="18sp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginLeft="7dp"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/product_price"
+            android:textSize="13sp" />
 
     </androidx.cardview.widget.CardView>
 

@@ -26,10 +26,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:text="@string/추천상품"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:textSize="17sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_slide_img"
@@ -43,10 +44,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:text="@string/전체상품"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:textSize="17sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_product"
@@ -60,7 +62,6 @@
 
     </ScrollView>
 
-    //서랍창
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -76,14 +77,16 @@
                 android:layout_width="27dp"
                 android:layout_height="27dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/menu5"/>
+                android:src="@drawable/menu5"
+                app:tint="@color/WUZ"
+                android:contentDescription="@string/StringValue"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Would U Zero"
+                android:text="@string/WouldUZero"
                 android:textSize="27sp"
-                android:textColor="#98D15F"
+                android:textColor="@color/WUZ"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
 

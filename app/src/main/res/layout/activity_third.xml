@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Would U Zero"
+            android:text="@string/app_name"
             android:textSize="27sp"
             android:textColor="#98D15F"
             android:textStyle="bold"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="제로웨이스트 행동 수칙"
+            android:text="@string/행동수칙"
             android:gravity="center"
             android:textSize="23sp"
             android:textStyle="bold"
@@ -44,54 +44,71 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. 있는 물건 최대한 활용하기"
+            android:text="@string/행동수칙1"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2. 필요한 물건은 중고/업사이클링 구매하기"
+            android:text="@string/행동수칙2"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3. 일회용품 사용 줄이기"
+            android:text="@string/행동수칙3"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4. 세제, 샴푸 등 생필품들 리필해서 사용하기"
+            android:text="@string/행동수칙4"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5. 배출되는 쓰레기 모니터링 하기"
+            android:text="@string/행동수칙5"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="6. 배달 음식/온라인 쇼핑 줄이기"
+            android:text="@string/행동수칙6"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp" />
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_moreinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/invisible_button"
+        android:text="@string/more_info"
+        android:textColor="@color/WUZ"
+        android:layout_gravity="end"
+        style="?android:attr/borderlessButtonStyle"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,7 +120,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="제로웨이스트 라이프, 시작해볼까요?"
+            android:text="@string/startZeroLife"
             android:textStyle="bold"
             android:textSize="17sp"/>
 
@@ -111,7 +128,7 @@
             android:id="@+id/btn_online"
             android:layout_width="270dp"
             android:layout_height="70dp"
-            android:text="온라인 상품"
+            android:text="@string/start_onlineProduct"
             android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -122,7 +139,7 @@
             android:id="@+id/btn_offline"
             android:layout_width="270dp"
             android:layout_height="70dp"
-            android:text="오프라인 매장"
+            android:text="@string/start_offlineShop"
             android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="18sp"
