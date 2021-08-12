@@ -1,42 +1,32 @@
 <?php
-	// ini_set('display_errors', '0'); //에러 메시지 출력 x
+	ini_set('display_errors', '0'); //에러 메시지 출력 x
     $db_host = "localhost"; 
     $db_user = "admin";
     $db_passwd = "admin";
-    $db_name = "Zero";
+    $db_name = "WZ";
     header("Content-Type:text/html;charset=utf-8");
 
     $link = mysqli_connect($db_host, $db_user, $db_passwd, $db_name); //DB 접속
 
-	$query = "
-		SELECT 
-			main_category, sub_category, siteName, name, price, img, link
-		FROM
-			online
-		ORDER BY name DESC
-		LIMIT 1, 8
-	";
+	// SQL 쿼리문 간단하게 쓰기 위한 함수 mq 선언
+    function mq($sql){
+        global $link;
+        return $link->query($sql);
+    }
 
-	$result = mysqli_query($link, $query);
-
-	$article = '';
-	while($row = mysqli_fetch_array($result)) {
-		$article .= '<div class = item>';
-		$article .= '<a href="'.$row['link'].'">';
-		$article .= '<img src="'.$row['img'].'">';
-		$article .= '</a>';
-		$article .= '<br>사이트명: '.$row['siteName'].'<br>';
-		$article .= '물품명: '.$row['name'].'<br>';
-		$article .= '가격: '.$row['price'].'<br>';
-		$article .= '</div>';
-	}
+    // 현재 페이지 번호
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    } else {
+        $page = 1;
+    }
 
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8">
+  	  <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
       <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
       <title>Would U ZERO?</title>
@@ -45,6 +35,7 @@
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
       <link rel="stylesheet" href="css/header.css?after">
       <link rel="stylesheet" href="css/category.css?after">
+	  <link rel="stylesheet" href="css/online.css?a">
   </head>
   <body>
     <!-- header -->
@@ -64,66 +55,21 @@
         </ul>
       </div>
     </header>
-  </div>
-  <!-- header end -->
-
-  <style>
-	  .search-box {
-		  	margin-top: 15px;
-		  	margin-left: 300px;
-		  	height: 40px;
-        	width: 1000px;
-            border: 1px solid #186325;
-            background: #ffffff;
-	  }
-	  .search-box > input {
-			height: 35px;
-			width: 740px;
-			font-size: 16px;
-			padding: 10px;
-			border: 0px;
-			outline: none;
-			float: left;
-	  }
-	  .search-box > button {
-			width: 50px;
-			height: 100%;
-            border: 0px;
-            background: #186325;
-            outline: none;
-            float: right;
-            color: #ffffff
-	  }
-
-	  .product {
-		  margin-top: 0px;
-		  margin-left: 260px;
-	  }
-
-	  .item {
-		  margin: 20px 0 0 40px;
-		  outline-style: solid;
-		  height: 330px;
-		  width: 220px;
-		  float: left;
-	  }
-
-	  .item > a > img {
-		  height: 240px;
-		  width: 220px;
-	  }
-
-	  select {
-		  margin-top: 15px;
-		  margin-left: 250px;
-		  width: 140px;
-	  }
-  </style>
+  	</div>
+  	<!-- header end -->
   
-  <div class="search-box">
-	<input type="text" placeholder="검색어를 입력하세요">
-	<button>검색</button>
-  </div>
+  
+  <form action="php/online_search.php" method="GET">
+	<div class="search-box">
+        <select name="search-type">
+			<option value="name">상품명</option>
+			<option value="siteName">사이트명</option>
+		</select>
+		<input type="text" name="search" placeholder="검색어를 입력하세요">
+		<button>검색</button>
+	</div>
+  </form>
+  	  
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   <script>
@@ -139,72 +85,126 @@
 		});
 	</script>
 
-  <div id="wrap">
+	<div id="wrap">
 		<header class="category">
 			<nav>
 				<ul class="gnb">
-					<li><a href="#">주방</a>
+					<li><a href="#주방">주방</a>
 						<ul class="sub">
-							<li><a href="#세제">세제</a></li>
-							<li><a href="#수세미">수세미</a></li>
-							<li><a href="#행주">행주</a></li>
-							<li><a href="#솔">솔</a></li>
-							<li><a href="#기타">기타</a></li>
+							<li><a href="php/online_category.php?main_category=주방&sub_category=세제">세제</a></li>
+							<li><a href="php/online_category.php?main_category=주방&sub_category=수세미">수세미</a></li>
+							<li><a href="php/online_category.php?main_category=주방&sub_category=행주">행주</a></li>
+							<li><a href="php/online_category.php?main_category=주방&sub_category=솔">솔</a></li>
+							<li><a href="php/online_category.php?main_category=주방&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
-					<li><a href="#bathroom">욕실</a>
+					<li><a href="#욕실">욕실</a>
 						<ul class="sub">
-							<li><a href="#헤어">헤어</a></li>
-							<li><a href="#바디">바디</a></li>
-							<li><a href="#구강">구강</a></li>
-							<li><a href="#기타">기타</a></li>
+							<li><a href="php/online_category.php?main_category=욕실&sub_category=헤어">헤어</a></li>
+							<li><a href="php/online_category.php?main_category=욕실&sub_category=바디">바디</a></li>
+							<li><a href="php/online_category.php?main_category=욕실&sub_category=구강">구강</a></li>
+							<li><a href="php/online_category.php?main_category=욕실&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
-					<li><a href="#clothes">의류</a>
+					<li><a href="#의류">의류</a>
 						<ul class="sub">
-							<li><a href="#상의">상의</a></li>
-							<li><a href="#하의">하의</a></li>
-							<li><a href="#신발">신발</a></li>
-							<li><a href="#기타">기타</a></li>
+							<li><a href="php/online_category.php?main_category=의류&sub_category=상의">상의</a></li>
+							<li><a href="php/online_category.php?main_category=의류&sub_category=하의">하의</a></li>
+							<li><a href="php/online_category.php?main_category=의류&sub_category=신발">신발</a></li>
+							<li><a href="php/online_category.php?main_category=의류&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
-					<li><a href="#bag">가방</a>
+					<li><a href="#가방">가방</a>
 						<ul class="sub">
-							<li><a href="#백팩">백팩</a></li>
-							<li><a href="#크로스/숄더백">크로스/숄더백</a></li>
-							<li><a href="#토트백">토트백</a></li>
-							<li><a href="#클러치">클러치</a></li>
-							<li><a href="#기타">기타</a></li>
+							<li><a href="php/online_category.php?main_category=가방&sub_category=백팩">백팩</a></li>
+							<li><a href="php/online_category.php?main_category=가방&sub_category=크로스/숄더백">크로스/숄더백</a></li>
+							<li><a href="php/online_category.php?main_category=가방&sub_category=토트백">토트백</a></li>
+							<li><a href="php/online_category.php?main_category=가방&sub_category=클러치">클러치</a></li>
+							<li><a href="php/online_category.php?main_category=가방&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
-          			<li><a href="#etc">잡화</a>
+          			<li><a href="#잡화">잡화</a>
 						<ul class="sub">
-							<li><a href="#악세사리">악세사리</a></li>
-							<li><a href="#지갑">지갑</a></li>
-							<li><a href="#케이스">케이스</a></li>
-							<li><a href="#기타">기타</a></li>
+							<li><a href="php/online_category.php?main_category=잡화&sub_category=악세사리">악세사리</a></li>
+							<li><a href="php/online_category.php?main_category=잡화&sub_category=지갑">지갑</a></li>
+							<li><a href="php/online_category.php?main_category=잡화&sub_category=케이스">케이스</a></li>
+							<li><a href="php/online_category.php?main_category=잡화&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
-          			<li><a href="#cosmetics">화장품</a>
+          			<li><a href="#화장품">화장품</a>
 						<ul class="sub">
-							<li><a href="#기초">기초</a></li>
-							<li><a href="#색조">색조</a></li>
+							<li><a href="php/online_category.php?main_category=화장품&sub_category=기초">기초</a></li>
+							<li><a href="php/online_category.php?main_category=화장품&sub_category=기타">기타</a></li>
 						</ul>
 					</li>
 				</ul>
 			</nav>
 		</header>
 	</div>
-
-	<select name="range">
-        <option value="">낮은가격순</option>
-        <option value="">높은가격순</option>
-		<option value="ASC">사이트명 오름차순</option>
-		<option value="DESC">사이트명 내림차순</option>
-    </select>
 	
-	<div class="product">
-		<?= $article ?>
+	<div class="order">
+	<form action="php/online_order.php" method="GET">
+			<select name="order">
+				<option value="siteName">사이트명</option>
+				<option value="name">상품명</option>
+			</select>
+			<select name="range">
+				<option value="ASC">오름차순</option>
+				<option value="DESC">내림차순</option>
+			</select>
+			<button>정렬</button>
+	</form>
 	</div>
+	
+
+	<div class="product">
+		<?php                           
+			$sql = mq("SELECT * FROM online_info");
+
+			// -------------- 페이징
+			$total_record = mysqli_num_rows($sql); //상품 총 수
+			$list = 8; //보여줄 상품 수
+			$block_cnt = 5; //페이지 수
+			$block_num = ceil($page / $block_cnt); //현재 페이지 블록
+			$block_start = (($block_num - 1) * $block_cnt) + 1;
+			$block_end = $block_start + $block_cnt - 1;
+			$total_page = ceil($total_record / $list);
+
+			if($block_end > $total_page) {
+				$block_end = $total_page; 
+			}
+
+			$total_block = ceil($total_page / $block_cnt); //블록의 총 개수
+			$page_start = ($page - 1) * $list; //페이지 시작
+			
+			//게시물 목록
+			$sql2 = mq("SELECT * FROM online_info LIMIT $page_start, $list");
+			
+			while($row = mysqli_fetch_array($sql2)){
+				$name = $row["name"];
+				                                                                
+    	?>
+		
+		<div class="item" style="text-align: center;">
+			<a href="<?= $row["link"]?>" target='_blank'>
+				<img src="<?= $row["img"]?>">
+			</a>
+			<a style="font-size: 16px; color: #186325; font-width: 1300;"><br><?= $row["siteName"]?></a>
+			<a style="font-size: 14px; color: #555;"><br><?= $name ?></a>
+			<a style="font-size: 16px; color: #186325;"><br><?= $row["price"]?></a>
+		</div>
+	
+		<?php                
+        	}                                                                                                            
+        ?>
+
+	</div>
+
+	<!-- 하단 페이징 부분 -->
+	<nav aria-label="Page navigation">
+		<ul class="pagination">
+			<?php include('php/all_page.php')?>                       
+		</ul>                                                                  
+	</nav>
   </body>
 </html>

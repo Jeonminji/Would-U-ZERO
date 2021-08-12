@@ -1,0 +1,130 @@
+/* search */
+.search-box {
+    margin-top: 15px;
+    margin-left: 300px;
+    height: 40px;
+    width: 1000px;
+    border: 1px solid #186325;
+    background: #ffffff;
+}
+
+.search-box > select {
+    height: 100%;
+    width: 100px;
+    float: left;
+    border-style: none;
+    outline: none;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    font-size: 16px;
+}
+
+.search-box > input {
+    height: 35px;
+    width: 740px;
+    font-size: 16px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+
+.search-box > button {
+    width: 50px;
+    height: 100%;
+    border: 0px;
+    background: #186325;
+    outline: none;
+    float: right;
+    color: #ffffff
+}
+
+.search-value {
+    margin-top: 25px;
+    margin-left: 360px;
+}
+/* search end */
+
+/* product */
+.product {
+    width: 1100px;
+    height: 750px;
+    margin-top: 0px;
+    margin-left: 260px;
+}
+
+.item {
+    margin: 20px 0 0 40px;
+    height: 345px;
+    width: 220px;
+    float: left;
+
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.item > a > img {
+    height: 240px;
+    width: 220px;
+}
+/* product end */
+
+/* order */
+.order {
+    margin-top: 15px;
+    margin-left: 300px;
+    height: 30px;
+    width: 300px;
+}
+
+.order > form > select {
+    height: 100%;
+    width: 100px;
+    border-style: none;
+    outline: none;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    font-size: 14px;
+}
+
+.order > form > button {
+    margin-left: 5px;
+    height: 30px;
+    width: 50px;
+    outline: none;
+    background: #ffffff;
+    border: 1px solid #186325;
+    border-radius: 4px;
+    font-size: 14px;
+}
+/* order end */
+
+/* paging */
+ul.pagination {
+    margin-top: 30px;
+    text-align: center;
+    list-style-type: none;
+    margin-bottom: 35px;
+    padding: 0;
+}
+
+ul.pagination > li {
+    font-size: 18px;
+    margin-left: 100px;
+    display: inline;
+    text-align: center;
+    padding: 0;
+}
+
+ul.pagination > li {
+    margin-left: 20px;
+}
+
+ul.pagination > li > a {
+    color: #000;
+}
+/* paging end */
