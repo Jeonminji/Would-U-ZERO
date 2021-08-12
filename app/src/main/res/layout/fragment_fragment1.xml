@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="712dp"
+    android:layout_height="match_parent"
     tools:context=".Online.Fragment_Online"
     android:fitsSystemWindows="true">
 
     <ScrollView
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -34,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp" />
+                android:paddingEnd="20dp"
+                android:overScrollMode="never"/>
 
             <TextView
                 android:id="@+id/text_whole_item"
@@ -53,7 +55,8 @@
                 android:layout_gravity="center"
                 android:paddingVertical="20dp"
                 android:paddingHorizontal="20dp"
-                />
+                android:layout_marginBottom="30dp"
+                android:overScrollMode="never"/>
 
         </LinearLayout>
 
