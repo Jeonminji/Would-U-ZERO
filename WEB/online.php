@@ -36,6 +36,7 @@
       <link rel="stylesheet" href="css/header.css?after">
       <link rel="stylesheet" href="css/category.css?after">
 	  <link rel="stylesheet" href="css/online.css?a">
+	  <script src = "js/update_click.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -186,7 +187,7 @@
     	?>
 		
 		<div class="item" style="text-align: center;">
-			<a href="<?= $row["link"]?>" target='_blank'>
+			<a onclick= "updateClick('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
 			<a style="font-size: 16px; color: #186325; font-width: 1300;"><br><?= $row["siteName"]?></a>
