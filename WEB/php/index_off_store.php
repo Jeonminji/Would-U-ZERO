@@ -1,7 +1,7 @@
 <?php
-    $link=mysqli_connect("localhost","admin","admin","test");
+    $link = mysqli_connect("localhost", "admin", "admin", "WZ");
 
-    $query= "SELECT * from off_test";
+    $query= "SELECT * from offline_info";
     $article = '';
     $result=mysqli_query($link, $query);
 

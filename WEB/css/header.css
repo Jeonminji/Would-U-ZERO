@@ -6,20 +6,13 @@
     --background-color2: #ffffff;
     --accent-color: #abe74d;
     --accent-color2: #e2f7c2;
-    --accene-color3: rgba(171, 231, 77,0.6);
+    --accent-color3: rgba(171, 231, 77,0.6);
+    --accent-color4: #4e750f;
 }
 
 * {
     box-sizing: border-box;
 	padding: 0px 0px 0px 0px;
-    font-family: 'Raleway', 'Jeju Gothic', sans-serif ;
-}
-
-@font-face {
-    font-family: 'Jeju Gothic';
-    font-weight: lighter;
-    src: url(http://fonts.googleapis.com/earlyaccess/jejugothic.cs);
-    unicode-range: U+AC00-U+D7A3;
 }
 
 body {
@@ -72,7 +65,6 @@ header {
 /* top navigation bar 스타일 */
 .topnav {
     height: 100%;
-    font-family: 'Raleway', sans-serif;
     line-height: 0px;
 	letter-spacing: 2px;
 	padding: 5px 200px 5px 0px; /*상 우 하 좌 */

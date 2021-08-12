@@ -17,7 +17,6 @@
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	acbd7d93f0734d392c1fb627ff0cd725&libraries=services,clusterer,drawing"></script>
       <script   src="http://code.jquery.com/jquery-latest.min.js"></script>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-      <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
   </head>
   <body>
     <!-- header -->
@@ -32,7 +31,7 @@
         <ul>
           <li><a href="index.html">home</a></li>
           <li><a href="about.html">about</a></li>
-          <li><a href="online.html">online</a></li>
+          <li><a href="online.php">online</a></li>
           <li><a href="offline.html">offline</a></li>
       
         </ul>
@@ -40,6 +39,7 @@
     </header>
     </div>
   <!-- header end -->
+  <div class = "blank"></div>
   <!-- home_cate_list -->
     <div class = "home_cate_list_box1">
       <div class = "home_cate_list_box2">
@@ -48,7 +48,7 @@
         </div>
         <div class = "home_cate_list_box4">
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=주방&sub_category=세제">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\주방.jpg" alt="1" >
                 <div class="home_cate_list_title">주방</div>
@@ -57,7 +57,7 @@
             </a>
           </div>
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=욕실&sub_category=헤어">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\욕실.jpg" alt="1" >
                 <div class="home_cate_list_title">욕실</div>
@@ -66,7 +66,7 @@
             </a>
           </div>
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=의류&sub_category=상의">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\의류.jpg" alt="1" >
                 <div class="home_cate_list_title">의류</div>
@@ -75,7 +75,7 @@
             </a>
           </div>
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=가방&sub_category=백팩">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\가방.jpg" alt="1" >
                 <div class="home_cate_list_title">가방</div>
@@ -84,7 +84,7 @@
             </a>
           </div>
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=화장품&sub_category=기초">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\화장품.jpg" alt="1" >
                 <div class="home_cate_list_title">화장품</div>
@@ -93,7 +93,7 @@
             </a>
           </div>
           <div class = "home_cate_list">
-            <a href = "./about.html">
+            <a href = "online_category.php?main_category=잡화&sub_category=악세사리">
               <div class = "home_cate_list_img_box">
                 <img class="home_cate_list_img"src="img\잡화.jpg" alt="1" >
                 <div class="home_cate_list_title">잡화</div>
@@ -107,199 +107,30 @@
   <!-- home_cate_list_end -->
     <div class = "blank"></div>
   <!-- recommend_item_part -->
-
-    <div class="rec_item_box1">
-      <div class = "rec_item_box2">
-          <div class="rec_item_box3">
-              <div class="rec_item_box4">
-                <div class = "rec_item_txt">추천상품</div>
-              </div>
-              <div class="rec_item_box5">
-                <ul class="slides">
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/28069/product/image_1603259197333_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">카네이테이</div>
-                            <div class = "item_name">마리아 (카키) XL</div>
-                            <div class = "item_price">548,000원</div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://shop-phinf.pstatic.net/20210129_95/1611910166800f2ODV_JPEG/13046009463484631_100949993.jpg?type=m510" alt = "2">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">urban.echo</div>
-                            <div class = "item_name">[어반에코] 제로웨이스트 리빙키트 - 삼베샤워타월 삼베수세미 솝파우치 소창행주손수건 건조집게</div>
-                            <div class = "item_price">34,400원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://cdn.imweb.me/thumbnail/20210510/ad0d741310374.jpg" alt = "3">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">플리츠마마</div>
-                            <div class = "item_name">미니숄더백 연보라</div>
-                            <div class = "item_price">45,000원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://wecontinew.co.kr/web/product/small/202008/6c06d7fd89b9703ef516b43c2a78ffe3.png" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">모어 댄 컨티뉴</div>
-                            <div class = "item_name">	CONTINEW 컨티뉴 2WAY 쇼퍼백 [블랙]</div>
-                            <div class = "item_price">59,000원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://shop-phinf.pstatic.net/20200903_214/1599126389319VpItz_JPEG/262278009444421_1984365997.jpg?type=f295_381" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">EARTHLING</div>
-                            <div class = "item_name">[어슬링] 대나무 섬유 다회용 화장솜 보관함 주머니 세트</div>
-                            <div class = "item_price">19,900원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://shop-phinf.pstatic.net/20210504_289/16201109643133XcOd_JPEG/21246853001725319_939527787.jpg?type=m510" alt = "5">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">더다룸</div>
-                            <div class = "item_name">대나무칫솔 10개 세트 친환경 칫솔 제로웨이스트 미세모 일반모 나무 우드 성인 기본형</div>
-                            <div class = "item_price">25,000원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://shop-phinf.pstatic.net/20201214_224/1607914577401KDpJa_JPEG/9050466093326291_1355191101.jpg?type=f295_381" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">아트임팩트 블루오브</div>
-                            <div class = "item_name">블루오브 BLUEORB 리본백 크로스바디</div>
-                            <div class = "item_price">39,000원</div>
-                          </div>
-
-                        </div>
-                      
-                      </div>
-                    </li>
-                    <li class = "rec_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                </ul>
+  <div class="rec_item_box1">
+    <div class = "rec_item_box2">
+        <div class="rec_item_box3">
+            <div class="rec_item_box4">
+              <div class = "rec_item_txt">추천상품</div>
             </div>
-            <p class ="controls">
-              <span class="prev"><i class="fas fa-chevron-circle-left fa-2x"></i></span>
-              <span class="next"><i class="fas fa-chevron-circle-right fa-2x"></i></span>
-            </p>
+            <div class="rec_item_box5">
+              <?php include('php/index_recommend_item.php') ?>
+              <ul class="slides">
+                  <?= $recommend_items ?>
+              </ul>
           </div>
-      </div>
-      <script  src="js\recommend_item.js"></script>
+          <p class ="controls">
+            <span class="prev"><i class="fas fa-chevron-circle-left fa-2x"></i></span>
+            <span class="next"><i class="fas fa-chevron-circle-right fa-2x"></i></span>
+          </p>
+        </div>
     </div>
-<!-- recommend_item_part_end -->
-<div class = "blank"></div>
+    <script  src="js\update_click.js"></script>
+    <script  src="js\index_recommend_item.js"></script>
+    
+  </div>
+  <!-- recommend_item_part_end -->
+  <div class = "blank"></div>
 <!-- online_item_part -->
     <div class="online_item_box1">
       <div class = "online_item_box2">
@@ -308,529 +139,32 @@
               <div class = "online_txt">ONLINE</div>
             </div>
             <div class="online_item_box5">
+              <div class = "online_item_box6">
+                <?php include('php/index_online_item.php') ?>
                 <ul class="online_slides">
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿1</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿2</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿3</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿4</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿5</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿6</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿7</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿8</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿9</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿10</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿11</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿12</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿13</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿14</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿15</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿16</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿17</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿18</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿19</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿20</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿21</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿22</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿23</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class = "online_item">
-                      <div class = "item_box">
-                        
-                        <div class = "slide_img_box">
-                          <img src = "https://contents.sixshop.com/thumbnails/uploadedFiles/57915/product/image_1622187857664_1000.jpg" alt = "1">
-                          
-                          <!-- overlay -->
-                          <div class = "overlay">
-                            <a href = "" class = "buy_btn">Buy Now</a>
-                          </div>
-                        </div>
-                        <div class = "item_detail_box">
-                          <div class = "type">
-                            <div class = "store_name">터치포굿24</div>
-                            <div class = "item_name">	Animal Citizenship_웃는 돌고래와 바다꽃 산호</div>
-                            <div class = "item_price">60,000원</div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-
+                  <?= $online_items ?>
                 </ul>
+              </div>
+              <div class = "online_item_box7">
+                <ul class="online_slides2">
+                  <?= $online_items2 ?>
+                </ul>
+              </div>
             </div>
             
           <!-- controler -->
             <p class ="controls">
-                <span class="prev">prev</span>
-                <span class="next">next</span>
+                <span class="online_prev"><i class="fas fa-chevron-circle-left fa-2x"></i></span>
+                <span class="online_next"><i class="fas fa-chevron-circle-right fa-2x"></i></span>
             </p>
             <p class = "online_page_skip">
-              <a href = "online.html">
+              <a href = "online.php">
                 <span class = "online_skip_butten">더보기</span>
               </a>
             </p>
           </div>   
       </div>
+      <script src = "js/index_online_item_move.js"></script>
     </div>
 
     <!-- online_item_part_end -->
@@ -846,7 +180,7 @@
             </div>
             <div class="off_box5">
               <div class = "off_box6">
-                  <?php include('/var/www/html/Would-U-ZERO/WEB/php/index_off_store.php')?>
+                  <?php include('php/index_off_store.php')?>
                 
                 <div class = "off_store_box">
                   <?= $article ?>
@@ -866,21 +200,84 @@
                 </div>        
               </div>
             </div>
+            <p class = "online_page_skip">
+              <a href = "offline.html">
+                <span class = "online_skip_butten">더보기</span>
+              </a>
+            </p>
         </div>     
       </div>
       <script src = "js/index_map.js"></script>
-      <script src = "js/off_click.js"></script>
     </div>
 
     <!-- 모달창 -->
     <div class="modal hidden">
       <div class="modal_overlay"></div>
       <div class="modal_contant">
-        <div class = "more_info_map"></div>
-        <div class = "more_info"></div>
+        <div class = "more_info_img_box">
+          <div class="modal_slide_box">
+            <ul class="modal_slide_list clearfix">
+              <li class="modal_slide_content slide01">
+                <img src = "">
+              </li>
+              <li class="modal_slide_content slide02">
+                <img src = "">
+              </li>
+              <li class="modal_slide_content slide03">
+                <img src = "">
+              </li>
+      
+            </ul>
+          </div>
+          <p class ="controls">
+            <span class="modal_img_prev"><i class="fas fa-chevron-left fa-2x"></i></span>
+            <span class="modal_img_next"><i class="fas fa-chevron-right fa-2x"></i></span>
+          </p>
+          
+        </div>
+        <div class = "more_info">
+
+          <div class = "more_info_map">
+            <div class = "modal_map"></div>
+          </div>
+          <div class = "more_info_contents">
+            <div class ="modal_off_name">
+              <span class = "modal_name"></span>
+            </div>
+            <div class = "modal_address">
+              <span><i class="fas fa-map-marker-alt "></i></span>
+              <span class = "modal_address_txt"></span>
+            </div>
+            <div class = "modal_opening_hours">
+              <span><i class="far fa-clock "></i></span>
+              <span class = "modal_opening_hours_txt"></span>
+            </div>
+            <div class = "modal_store_number">
+              <span><i class="fas fa-mobile-alt"></i></span>
+              <span class = "modal_number_txt"></span>
+            </div>
+            <div>
+              <span class = "modal_instargram">
+                <a href = "">
+                  <i class="fab fa-instagram "></i>
+                  <span class = "instargram_txt">
+                    INSTARGRAM
+                  </span>
+                </a>
+              </span> 
+            </div>
+            <div class = "modal_etc">
+              <span><i class="fas fa-info-circle"></i></span>
+              <blockquote class = "modal_etc_txt"></blockquote>
+            </div>
+            
+          </div>
+        </div>
+      <script src = "js/index_modal_map.js"></script>
       </div>
     </div>
-    <script src = "js/modal.js"></script>
-
+    <script src = "js/index_modal.js"></script>
+    <script src = "js/index_off_click.js"></script>
+    <script src = "js/index_modal_img_move.js"></script>
   </body>
 </html>
