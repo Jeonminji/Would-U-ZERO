@@ -1,5 +1,5 @@
 <?php
-	// ini_set('display_errors', '0'); //에러 메시지 출력 x
+	ini_set('display_errors', '0'); //에러 메시지 출력 x
     $db_host = "localhost"; 
     $db_user = "admin";
     $db_passwd = "admin";

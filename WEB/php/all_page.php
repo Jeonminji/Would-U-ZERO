@@ -1,5 +1,4 @@
 <?php
-
     header("Content-Type: application/json");
     $link=mysqli_connect("localhost","admin","admin","WZ");
 
