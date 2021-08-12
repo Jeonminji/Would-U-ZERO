@@ -6,8 +6,8 @@ function updateClick(store){
        dataType : "json",
        error : function(){ alert('통신실패!!');  },
        success : function(res){ 
-          
-          location.href = res.link;
+          var openNewWindow = window.open("about:blank");
+          openNewWindow.location.href = res.link;
          
         }
     });
