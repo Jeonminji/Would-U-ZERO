@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.woulduzero.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
@@ -57,6 +58,11 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     @Override
     public int getItemCount() {
         return (sliderItems != null ? sliderItems.size() : 0);
+    }
+
+    public void filterList(ArrayList<ImageSlide> filteredList) {
+        sliderItems = filteredList;
+        notifyDataSetChanged();
     }
 
     public static class SliderViewHolder extends RecyclerView.ViewHolder {

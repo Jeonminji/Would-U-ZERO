@@ -47,7 +47,7 @@ public class Fragment_Online extends Fragment {
 
     //화면
     private SliderAdapter slideAdapter;
-    private ArrayList<ImageSlide> slideArrayList, recommendList;
+    private ArrayList<ImageSlide> slideArrayList, recommendList, filteredRecommend, filteredView;
 
     private ProductAdapter productAdapter;
     private ArrayList<Product> productArrayList, filteredList;
@@ -59,7 +59,6 @@ public class Fragment_Online extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fragment1, container, false);
         FirebaseDatabase database = FirebaseDatabase.getInstance(); //firebase 연동
-
 
         //전체상품
         //이미지 슬라이드
@@ -171,11 +170,13 @@ public class Fragment_Online extends Fragment {
 
         expandableListView.setOnChildClickListener((parent, v12, groupPosition, childPosition, id) -> {
             filteredList = new ArrayList<>();
+            filteredRecommend = new ArrayList<>();
             String mainCategory = expandableListAdapter.getGroup(groupPosition).toString();
             String subCategory = expandableListAdapter.getChild(groupPosition, childPosition).toString();
             Log.d(getTag(), mainCategory + subCategory);
 
             searchFilter(mainCategory,subCategory);
+            recommendFilter(mainCategory, subCategory);
             drawerLayout.close();
 
             return true;
@@ -194,6 +195,23 @@ public class Fragment_Online extends Fragment {
         }
 
         productAdapter.filterList(filteredList);
+    }
+
+    public void recommendFilter(String main_category, String sub_category) {
+        filteredRecommend.clear();
+        filteredView = new ArrayList<>();
+
+        for(int i = 0; i < slideArrayList.size(); i++) {
+            if(slideArrayList.get(i).getMain_category().contains(main_category)
+                    && slideArrayList.get(i).getSub_category().contains(sub_category))
+                filteredRecommend.add(slideArrayList.get(i));
+        }
+
+        for(int i = 0; i < 5; i++) {
+            int randNum = (int) ((Math.random() * 100) % filteredRecommend.size());
+            filteredView.add(filteredRecommend.get(randNum));
+        }
+        slideAdapter.filterList(filteredView);
     }
 
     private void createList() {
