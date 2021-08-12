@@ -38,7 +38,7 @@
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?a">
-	  <script src = "../js/update_click.js"></script>
+	  <script src = "../js/update_click.js"></script> 
   </head>
   <body>
     <!-- header -->
