@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.woulduzero.MyExpandableAdapter;
 import com.example.woulduzero.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -180,6 +181,17 @@ public class Fragment_Online extends Fragment {
             drawerLayout.close();
 
             return true;
+        });
+
+        //맨 위로, 맨 아래로 버튼
+        FloatingActionButton btn_top = v.findViewById(R.id.top);
+        btn_top.setOnClickListener(v1 -> {
+            recyclerView.smoothScrollToPosition(0);
+        });
+
+        FloatingActionButton btn_bottom = v.findViewById(R.id.bottom);
+        btn_top.setOnClickListener(v1 -> {
+            recyclerView.smoothScrollToPosition(productArrayList.size());
         });
 
         return v;
