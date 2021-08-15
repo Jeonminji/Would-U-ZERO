@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -183,16 +185,34 @@ public class Fragment_Online extends Fragment {
             return true;
         });
 
+        ScrollView onlineScroll = v.findViewById(R.id.online_scroll);
+
         //맨 위로, 맨 아래로 버튼
-        FloatingActionButton btn_top = v.findViewById(R.id.top);
+        /*
+        ImageView btn_top = v.findViewById(R.id.top);
         btn_top.setOnClickListener(v1 -> {
-            recyclerView.smoothScrollToPosition(0);
+
         });
 
-        FloatingActionButton btn_bottom = v.findViewById(R.id.bottom);
-        btn_top.setOnClickListener(v1 -> {
-            recyclerView.smoothScrollToPosition(productArrayList.size());
+        ImageView btn_bottom = v.findViewById(R.id.bottom);
+        btn_bottom.setOnClickListener(v1 -> {
+            onlineScroll.fullScroll(ScrollView.FOCUS_DOWN);
+            recyclerView.scrollToPosition(productArrayList.size());
         });
+
+         */
+        TextView btn_top = v.findViewById(R.id.top);
+        btn_top.setOnClickListener(v1 -> {
+            onlineScroll.fullScroll(ScrollView.FOCUS_UP);
+            recyclerView.scrollToPosition(0);
+        });
+
+        TextView btn_bottom = v.findViewById(R.id.bottom);
+        btn_bottom.setOnClickListener(v1 -> {
+            onlineScroll.fullScroll(ScrollView.FOCUS_DOWN);
+            recyclerView.scrollToPosition(productArrayList.size());
+        });
+
 
         return v;
     }
