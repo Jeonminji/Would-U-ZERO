@@ -10,8 +10,15 @@
     --accent-color4: #4e750f;
 }
 
-body{
-    margin: 0;
+* {
+    box-sizing: border-box;
+	padding: 0px 0px 0px 0px;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--background-color2);
 }
 
 a{

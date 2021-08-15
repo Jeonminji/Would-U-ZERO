@@ -43,19 +43,34 @@ function modalinfo(store){
 
             if(res.other_info != " "){
                 modal_etc.classList.remove("hidden");
-                for(i = 0; i < icon_num; i++){
-                    icon[i].style.fontSize = '1em';
-                }
-                for(i = 0; i < modal_info_divs_num; i++){
-                    modal_info_divs[i].style.height = "45px"
-                }
-                modal_address.style.fontSize = '1em';
-                modal_insta_txt.style.fontSize = '1em';
-                modal_opening_hours.style.fontSize = '1em';
-                modal_store_num.style.fontSize = '1em';
                 modal_etc_txt.innerHTML = res.other_info;
-                modal_etc_txt.style.fontSize = '1em';
-
+                if(imgWidth <= 300){
+                    for(i = 0; i < icon_num; i++){
+                        icon[i].style.fontSize = '1em';
+                    }
+                    for(i = 0; i < modal_info_divs_num; i++){
+                        modal_info_divs[i].style.height = "30px"
+                    }
+                    modal_address.style.fontSize = '0.8em';
+                    modal_insta_txt.style.fontSize = '0.8em';
+                    modal_opening_hours.style.fontSize = '0.8em';
+                    modal_store_num.style.fontSize = '0.8em';
+                    modal_etc_txt.style.fontSize = '0.8em';
+                }
+                else{
+                    for(i = 0; i < icon_num; i++){
+                        icon[i].style.fontSize = '1.5em';
+                    }
+                    for(i = 0; i < modal_info_divs_num; i++){
+                        modal_info_divs[i].style.height = "50px"
+                    }
+                    modal_address.style.fontSize = '1em';
+                    modal_insta_txt.style.fontSize = '1em';
+                    modal_opening_hours.style.fontSize = '1em';
+                    modal_store_num.style.fontSize = '1em';
+                    modal_etc_txt.style.fontSize = '1em';
+                }
+            
             }
             else{
                 modal_etc.classList.add("hidden");
