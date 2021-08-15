@@ -17,28 +17,34 @@
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	acbd7d93f0734d392c1fb627ff0cd725&libraries=services,clusterer,drawing"></script>
       <script   src="http://code.jquery.com/jquery-latest.min.js"></script>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-  </head>
+      <script src="js/header.js" defer></script>
+      <script  src="js\update_click.js" defer></script>
+      <script  src="js\index_recommend_item.js" defer></script>
+      <script src = "js/index_online_item_move.js" defer></script>
+      <script src = "js/index_map.js" defer></script>
+      <script src = "js/index_modal_map.js" defer></script>
+    <script src = "js/index_modal.js" defer></script>
+    <script src = "js/index_off_click.js" defer></script>
+    <script src = "js/index_modal_img_move.js" defer></script>
+    </head>
   <body>
-    <!-- header -->
-    <div class="container">
-    <header>
-      <div class="header_logo">
-        <!-- <img src="" width="" /> -->
-        <a href="">WOULD U ZERO?</a>
-      </div>
-
-      <div class="topnav">
-        <ul>
-          <li><a href="index.html">home</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="online.php">online</a></li>
-          <li><a href="offline.html">offline</a></li>
-      
-        </ul>
-      </div>
-    </header>
-    </div>
-  <!-- header end -->
+<!-- header -->
+<nav class="navbar">
+  <div class="navbar_logo">
+      <i class="fas fa-leaf"></i>
+      <a href="">WOULD U ZERO?</a>
+  </div>
+  <ul class="navbar_category">
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Online</a></li>
+      <li><a href="">Offline</a></li>
+  </ul>
+  <div class="navbar_toogleBtn">
+      <i class="fas fa-bars"></i>
+  </div>
+</nav>
+<!-- header end -->
   <div class = "blank"></div>
   <!-- home_cate_list -->
     <div class = "home_cate_list_box1">
@@ -125,8 +131,7 @@
           </p>
         </div>
     </div>
-    <script  src="js\update_click.js"></script>
-    <script  src="js\index_recommend_item.js"></script>
+   
     
   </div>
   <!-- recommend_item_part_end -->
@@ -164,7 +169,7 @@
             </p>
           </div>   
       </div>
-      <script src = "js/index_online_item_move.js"></script>
+      
     </div>
 
     <!-- online_item_part_end -->
@@ -207,7 +212,6 @@
             </p>
         </div>     
       </div>
-      <script src = "js/index_map.js"></script>
     </div>
 
     <!-- 모달창 -->
@@ -273,11 +277,9 @@
             
           </div>
         </div>
-      <script src = "js/index_modal_map.js"></script>
+      
       </div>
     </div>
-    <script src = "js/index_modal.js"></script>
-    <script src = "js/index_off_click.js"></script>
-    <script src = "js/index_modal_img_move.js"></script>
+    
   </body>
 </html>

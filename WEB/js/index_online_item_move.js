@@ -11,7 +11,7 @@ var online_slideCount = online_slide.length;
 var online_prevBtn = document.querySelector('.online_prev');
 var online_nextBtn = document.querySelector('.online_next');
 
-var online_slideWidth = 300;
+var online_slideWidth = online_slide[0].clientWidth;
 var online_slideMargin = 20;
 
 online_makeClone();

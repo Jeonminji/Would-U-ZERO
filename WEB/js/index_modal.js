@@ -44,7 +44,7 @@ function modalinfo(store){
             if(res.other_info != " "){
                 modal_etc.classList.remove("hidden");
                 for(i = 0; i < icon_num; i++){
-                    icon[i].classList.add("fa-x");
+                    icon[i].style.fontSize = '1em';
                 }
                 for(i = 0; i < modal_info_divs_num; i++){
                     modal_info_divs[i].style.height = "45px"
@@ -59,16 +59,31 @@ function modalinfo(store){
             }
             else{
                 modal_etc.classList.add("hidden");
-                for(i = 0; i < icon_num; i++){
-                    icon[i].classList.add("fa-2x");
+                
+                if(imgWidth <= 300){
+                    for(i = 0; i < icon_num; i++){
+                        icon[i].style.fontSize = '1em';
+                    }
+                    for(i = 0; i < modal_info_divs_num; i++){
+                        modal_info_divs[i].style.height = "50px"
+                    }
+                    modal_address.style.fontSize = '1em';
+                    modal_insta_txt.style.fontSize = '1em';
+                    modal_opening_hours.style.fontSize = '1em';
+                    modal_store_num.style.fontSize = '1em';
                 }
-                for(i = 0; i < modal_info_divs_num; i++){
-                    modal_info_divs[i].style.height = "50px"
+                else{
+                    for(i = 0; i < icon_num; i++){
+                        icon[i].style.fontSize = '1.5em';
+                    }
+                    for(i = 0; i < modal_info_divs_num; i++){
+                        modal_info_divs[i].style.height = "50px"
+                    }
+                    modal_address.style.fontSize = '1.5em';
+                    modal_insta_txt.style.fontSize = '1.5em';
+                    modal_opening_hours.style.fontSize = '1.5em';
+                    modal_store_num.style.fontSize = '1.5em';
                 }
-                modal_address.style.fontSize = '1.5em';
-                modal_insta_txt.style.fontSize = '1.5em';
-                modal_opening_hours.style.fontSize = '1.5em';
-                modal_store_num.style.fontSize = '1.5em';
             }
         }
     });

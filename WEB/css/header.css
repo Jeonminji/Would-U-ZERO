@@ -10,16 +10,8 @@
     --accent-color4: #4e750f;
 }
 
-* {
-    box-sizing: border-box;
-	padding: 0px 0px 0px 0px;
-}
-
-body {
-    font-family: Arial;
-    padding: 0px;
-    margin: 0px;
-    background-color: var(--background-color2);
+body{
+    margin: 0;
 }
 
 a{
@@ -31,63 +23,130 @@ li{
     list-style:none;
 }
 
-.container {
+.navbar{
     width: 100%;
-    padding: 25px;
-    text-align: left;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--background-color);
 }
 
-header {
-	width:100%;
-	height:100px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-/* header_logo 스타일 사이트 이름, */
-.header_logo{
-    padding-left: 100px;
-}
-.header_logo img {
-    width: 300px;
-    margin: 0 10px;
-}
-
-.header_logo a{
+.navbar_logo{
     font-size: 2.5em;
     font-weight: bold;
-	letter-spacing: 3px;
+    letter-spacing: 3px;
     color: var(--site_name_color);
+    padding-left: 100px;
 }
 
+.navbar_logo i{
+    color: var(--accent-color4);
+}
 
-/* top navigation bar 스타일 */
-.topnav {
-    height: 100%;
-    line-height: 0px;
-	letter-spacing: 2px;
-	padding: 5px 200px 5px 0px; /*상 우 하 좌 */
+.navbar_category{
+    letter-spacing: 2px;
     font-size: 1.4em;
     font-weight: bold;
+    display: flex;
+    padding-left: 0;
+    padding-right: 20%;
+    align-items: center;
     text-align: center;
     
 }
-.topnav li {
-    float: left;
-    position: relative;
-    padding: 0px;
-    
+
+.navbar_category li{
+    padding: 8px 12px;
+    margin: 10px;
 }
-.topnav li a{
-    width: 150px;
-    height: 50px;
-    display: block;
-    padding: 25px 10px;
-    text-decoration: none;
-    text-align: left;
-    color: var(--text-color);
-}
-.topnav li:hover a{
+.navbar_category li:hover a{
     color: var(--accent-color);
+}
+
+.navbar_toogleBtn{
+    display: none;
+    position: absolute;
+    right: 22px;
+    font-size: 24px;
+    color: var(--accent-color4);
+}
+.blank{
+    width: 100%;
+    height: 50px;
+}
+
+@media screen and (max-width: 1024px){
+    .navbar{
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+    .navbar_logo{
+        font-size: 2em;
+        padding-left: 0;
+    }
+    .navbar_category{
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar_category li{
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        margin: 0;
+    }
+
+    .navbar_toogleBtn{
+        display: block;
+    }
+
+    .navbar_category.active{
+        display: flex;
+    }
+    .blank{
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .navbar{
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+    .navbar_logo{
+        font-size: 1.5em;
+        padding-left: 0;
+    }
+    .navbar_category{
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar_category li{
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        margin: 0;
+    }
+
+    .navbar_toogleBtn{
+        display: block;
+    }
+
+    .navbar_category.active{
+        display: flex;
+    }
+
+    .blank{
+        height: 20px;
+    }
 }

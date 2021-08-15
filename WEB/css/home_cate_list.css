@@ -54,7 +54,34 @@
     font-weight: bold;
 }
 
-.blank{
-    width: 100%;
-    height: 50px;
+@media screen and (max-width: 1024px){
+    .home_cate_list_box1{
+        height: 250px;
+    }
+    .home_cate_list_box2{
+        width: 100%;
+        margin: 0;
+    }
+    .home_cate_list_txt{
+        width:150px;
+        font-size: 1.5em;
+    }
+    .home_cate_list_box4{
+        padding: 0;
+        height: 200px;
+    }
+    .home_cate_list{
+        width: 15%;
+        height: 70%;
+    }
+    .home_cate_list_img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .home_cate_list_box1{
+       display: none;
+    }
 }

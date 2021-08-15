@@ -6,7 +6,16 @@ var modal_img_count = modal_imgs.length;
 var img_prevBtn = document.querySelector('.modal_img_prev');
 var img_nextBtn = document.querySelector('.modal_img_next');
 
-var imgWidth = 500;
+var off_map_size = document.querySelector('.off_map').clientWidth;
+if(off_map_size == 890){
+    var imgWidth = 500;
+}
+else if(off_map_size == 560){
+    var imgWidth = 300;
+}
+else{
+    var imgWidth = 250;
+}
 
 // 무한 슬라이드로 만들기 위한 클론
 function img_makeClone(){

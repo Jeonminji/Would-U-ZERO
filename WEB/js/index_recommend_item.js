@@ -7,7 +7,7 @@ var slideCount = slide.length;
 var prevBtn = document.querySelector('.prev');
 var nextBtn = document.querySelector('.next');
 
-var slideWidth = 300;
+var slideWidth = slide[0].clientWidth;
 var slideMargin = 20;
 
 makeClone();
