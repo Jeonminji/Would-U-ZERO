@@ -99,6 +99,7 @@ li{
         display: none;
         flex-direction: column;
         align-items: center;
+	padding: 0;
     }
 
     .navbar_category li{
