@@ -35,6 +35,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
+	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?a">
