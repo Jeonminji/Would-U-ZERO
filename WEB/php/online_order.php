@@ -39,6 +39,10 @@
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?after">
+<<<<<<< HEAD
+=======
+	  <script src = "../js/update_click.js"></script>
+>>>>>>> d36d367bb9b787365177528d993243945da9ed3a
   </head>
   <body>
 	<!-- header -->
@@ -186,7 +190,7 @@
     	?>
 		
 		<div class="item" style="text-align: center;">
-			<a onclick= "updateClick('<?= $name ?>')">
+			<a onclick= "updateClick2('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
 			<a style="font-size: 16px; color: #186325; font-weight: bold;"><br><?= $row["siteName"]?></a>

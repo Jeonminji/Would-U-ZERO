@@ -179,7 +179,7 @@
     	?>
 		
 		<div class="item" style="text-align: center;">
-			<a onclick= "updateClick('<?= $name ?>')">
+			<a onclick= "updateClick2('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
 			<a style="font-size: 16px; color: #186325; font-weight: bold;"><br><?= $row["siteName"]?></a>
