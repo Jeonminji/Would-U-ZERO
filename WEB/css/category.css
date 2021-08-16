@@ -23,6 +23,7 @@
 	padding:10px 0; 
 	color:#000000;
 	transition:all 0.5s ease;
+	font-weight: bold; 
 }
 
 .sub { 
@@ -32,10 +33,11 @@
 }
 
 .sub > li > a { 
-	margin-left: 100px;
+	margin-left: 95px;
     margin-top: 5px;
 	padding:5px 0;
-	transition:all 0.5s ease; 
+	transition:all 0.5s ease;
+	font-weight: bold; 
 }
 
 .gnb > li:hover > a {color:#abe74d; }

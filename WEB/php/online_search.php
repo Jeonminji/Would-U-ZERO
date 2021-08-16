@@ -36,30 +36,27 @@
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
       <link rel="stylesheet" href="../css/header.css?after">
-      <link rel="stylesheet" href="../css/category.css?after">
-	  <link rel="stylesheet" href="../css/online.css?a">
+      <link rel="stylesheet" href="../css/category.css?a">
+	  <link rel="stylesheet" href="../css/online.css?after">
 	  <script src = "../js/update_click.js"></script> 
   </head>
-  <body>
-    <!-- header -->
-    <div class="container">
-    <header>
-      <div class="header_logo">
-        <!-- <img src="" width="" /> -->
-        <a href="">WOULD U ZERO?</a>
-      </div>
-
-      <div class="topnav">
-        <ul>
-          <li><a href="../index.html">home</a></li>
-          <li><a href="../about.html">about</a></li>
-          <li><a href="../online.php">online</a></li>
-          <li><a href="../offline.html">offline</a></li>
+	<!-- header -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fas fa-leaf"></i>
+            <a href="">WOULD U ZERO?</a>
+        </div>
+        <ul class="navbar_category">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../online.php">Online</a></li>
+            <li><a href="../offline.html">Offline</a></li>
         </ul>
-      </div>
-    </header>
-  </div>
-  <!-- header end -->  
+        <div class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+  	<!-- header end --> 
   
   <form action="online_search.php" method="GET">
 	<div class="search-box">
@@ -172,7 +169,7 @@
         ?>
 
         <div class="search-value">
-            <a style="font-size: 22px; color: #000; font-width: 1600;">'<?php echo $search; ?>' 검색 결과 <?php echo $count; ?>건이 나왔습니다.</a>
+            <a style="font-size: 22px; color: #000; font-weight: bold;">'<?php echo $search; ?>' 검색 결과 <?php echo $count; ?>건이 나왔습니다.</a>
         </div>
 
         <?php
@@ -185,7 +182,7 @@
 			<a onclick= "updateClick('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
-			<a style="font-size: 16px; color: #186325; font-width: 1300;"><br><?= $row["siteName"]?></a>
+			<a style="font-size: 16px; color: #186325; font-weight: bold;"><br><?= $row["siteName"]?></a>
 			<a style="font-size: 14px; color: #555;"><br><?= $name ?></a>
 			<a style="font-size: 16px; color: #186325;"><br><?= $row["price"]?></a>
 		</div>

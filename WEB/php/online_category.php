@@ -45,24 +45,22 @@
 	  <script src = "../js/update_click.js"></script>
   </head>
   <body>
-    <!-- header -->
-    <div class="container">
-    <header>
-      <div class="header_logo">
-        <!-- <img src="" width="" /> -->
-        <a href="">WOULD U ZERO?</a>
-      </div>
-
-      <div class="topnav">
-        <ul>
-          <li><a href="../index.html">home</a></li>
-          <li><a href="../about.html">about</a></li>
-          <li><a href="../online.php">online</a></li>
-          <li><a href="../offline.html">offline</a></li>
+	<!-- header -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fas fa-leaf"></i>
+            <a href="">WOULD U ZERO?</a>
+        </div>
+        <ul class="navbar_category">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../online.php">Online</a></li>
+            <li><a href="../offline.html">Offline</a></li>
         </ul>
-      </div>
-    </header>
-  	</div>
+        <div class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
   	<!-- header end -->
   
   
@@ -149,20 +147,6 @@
 		</header>
 	</div>
 	
-	<!-- <div class="order">
-	<form action="online_order.php" method="GET">
-			<select name="order">
-				<option value="siteName">사이트명</option>
-				<option value="name">상품명</option>
-			</select>
-			<select name="range">
-				<option value="ASC">오름차순</option>
-				<option value="DESC">내림차순</option>
-			</select>
-			<input type="submit" class="btn" value="Search">
-	</form>
-	</div> -->
-	
 
 	<div class="product">
 		<?php                           
@@ -204,7 +188,7 @@
 			<a onclick= "updateClick('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
-			<a style="font-size: 16px; color: #186325; font-width: 1300;"><br><?= $row["siteName"]?></a>
+			<a style="font-size: 16px; color: #186325; font-weight: bold;"><br><?= $row["siteName"]?></a>
 			<a style="font-size: 14px; color: #555;"><br><?= $name ?></a>
 			<a style="font-size: 16px; color: #186325;"><br><?= $row["price"]?></a>
 		</div>
