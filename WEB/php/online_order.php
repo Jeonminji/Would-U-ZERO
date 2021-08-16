@@ -39,10 +39,7 @@
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?after">
-<<<<<<< HEAD
-=======
 	  <script src = "../js/update_click.js"></script>
->>>>>>> d36d367bb9b787365177528d993243945da9ed3a
   </head>
   <body>
 	<!-- header -->
