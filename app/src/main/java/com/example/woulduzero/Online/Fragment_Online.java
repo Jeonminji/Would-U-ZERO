@@ -200,17 +200,17 @@ public class Fragment_Online extends Fragment {
             recyclerView.scrollToPosition(productArrayList.size());
         });
 
+        TextView btn_bottom = v.findViewById(R.id.bottom);
+        btn_bottom.setOnClickListener(v1 -> {
+            onlineScroll.fullScroll(ScrollView.FOCUS_DOWN);
+            recyclerView.scrollToPosition(productArrayList.size());
+        });
+
          */
         TextView btn_top = v.findViewById(R.id.top);
         btn_top.setOnClickListener(v1 -> {
             onlineScroll.fullScroll(ScrollView.FOCUS_UP);
             recyclerView.scrollToPosition(0);
-        });
-
-        TextView btn_bottom = v.findViewById(R.id.bottom);
-        btn_bottom.setOnClickListener(v1 -> {
-            onlineScroll.fullScroll(ScrollView.FOCUS_DOWN);
-            recyclerView.scrollToPosition(productArrayList.size());
         });
 
 
