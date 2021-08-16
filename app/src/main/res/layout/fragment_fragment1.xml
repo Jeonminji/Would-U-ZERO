@@ -28,8 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:text="@string/추천상품"
                 android:textSize="20sp" />
 
@@ -46,8 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:text="@string/전체상품"
                 android:textSize="20sp" />
 
@@ -57,7 +57,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_product"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingVertical="20dp"
@@ -141,8 +141,9 @@
                 android:layout_width="27dp"
                 android:layout_height="27dp"
                 android:layout_margin="10dp"
+                android:contentDescription="@string/image"
                 android:src="@drawable/menu5"
-                android:contentDescription="@string/image"/>
+                app:tint="@color/WUZ" />
 
             <TextView
                 android:layout_width="wrap_content"
