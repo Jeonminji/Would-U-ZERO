@@ -2,45 +2,56 @@
 	$filter = $_GET['filter'];
 	$page = $_GET['page'];
 	$html = array();
-	$link=mysqli_connect("localhost","admin","admin","test");
+	$link = mysqli_connect("localhost", "admin", "admin", "WZ");
 	$sql = "select * from offline_info where store_type like '%$filter%'";
 	$result = mysqli_query($link, $sql);
   $i = 0;
-
   while ($row = mysqli_fetch_array($result))
   {
     $html[$i] = $row;
     $i = $i + 1;
   }
+  
+  $margin = 0;
+  if ($i % 3 == 0)
+    $margin = 4;
+  else
+    $margin = 37.5;
 
-  for($i = 3; $i > 0; $i = $i - 1)
+  for($j = 0; ($j < 3) &&( $j < $i); $j = $j + 1)
   {
-    echo('<div class="searched_list">
-    <a class="prev" onclick="plusSlides(-1,'.(3 - $i).')">
+    $join_ary = array('\'',$html[$page * 3 + $j - 3]["store_name"],'\'');
+    $ret = join("",$join_ary);
+
+    echo('<div class="searched_list" style="margin-left:'.$margin.'%">
+    <a class="prev" onclick="plusSlides(-1,'.$j.')">
       <img src="img/point_prev.png">
     </a>
-    <a class="next" onclick="plusSlides(1,'.(3 - $i).')">
+    <a class="next" onclick="plusSlides(1,'.$j.')">
       <img src="img/point_next.png">
     </a>
-    
+
     <div class="slideshow-container">
-      <div class="mySlides'.(4-$i).' fade">
-        <img src="'.$html[$page * 3 - $i]["img1"].'" style="width:100%; height: 250px;">
+      <div class="mySlides'.($j + 1).' fade">
+        <img src="'.$html[$page * 3 + $j - 3]["img1"].'" style="width:100%; height: 250px;">
       </div>
-      <div class="mySlides'.(4-$i).' fade">
-        <img src="'.$html[$page * 3 - $i]["img2"].'" style="width:100%; height: 250px;">
+      <div class="mySlides'.($j + 1).' fade">
+        <img src="'.$html[$page * 3 + $j - 3]["img2"].'" style="width:100%; height: 250px;">
       </div>
-      <div class="mySlides'.(4-$i).' fade">
-        <img src="'.$html[$page * 3 - $i]["img3"].'" style="width:100%; height: 250px;">
+      <div class="mySlides'.($j + 1).' fade">
+        <img src="'.$html[$page * 3 + $j - 3]["img3"].'" style="width:100%; height: 250px;">
       </div>
     </div>
 
     <div class="store_info">
-      <p>'.$html[$page * 3 - $i]["store_name"].'</p>
-      <p> 인스타 </p>
-      <p> 운영시간 : '.$html[$page * 3 - $i]["opening_hours"].'</p>
-      <a class="info_button" onclick="openModal()">더보기</a>
-    </div>
+      <p style="font-size: larger; text-align: center;">'.$html[$page * 3 + $j - 3]["store_name"].'</p>
+      <p> &nbsp운영시간 </br></p>
+      <p>&nbsp&nbsp'.$html[$page * 3 + $j - 3]["opening_hours"].'</p>
+      <p> &nbsp인스타그램 </br></p>
+      <a  style="font-size:15px;" href='.$html[$page * 3 + $j - 3]['link'].'>&nbsp&nbsp'.$html[$page * 3 + $j - 3]['link'].'</a>
+      </div>
+    
+      <a class="info_button" onclick="openModal('.$ret.')">더보기</a>
   </div>');
   }
 ?>

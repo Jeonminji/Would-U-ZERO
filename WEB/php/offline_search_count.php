@@ -1,6 +1,6 @@
 <?php
 	$filter = $_GET['filter'];
-	$link=mysqli_connect("localhost","admin","admin","test");
+	$link = mysqli_connect("localhost", "admin", "admin", "WZ");
 	$sql = "SELECT store_type, store_name FROM offline_info where store_type like '%$filter%';";
 	$result = mysqli_query($link, $sql);	
 	$i = 0;

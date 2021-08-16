@@ -12,44 +12,41 @@
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ae1972e6135695045dba7eaea63301c"></script>
-      <script type="text/javascript" src="js/category.js"></script>
       <script type="text/javascript" src="js/offline_search.js"></script>
+      <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+
     </head>
 
   <body>
     <!-- header -->
-    <div class="container">
-    <header>
-      <div class="header_logo">
-        <!-- <img src="" width="" /> -->
-        <a href="">WOULD U ZERO?</a>
-      </div>
-
-      <div class="topnav">
-        <ul>
-          <li><a href="index.html">home</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="online.html">online</a></li>
-          <li><a href="offline.html">offline</a></li>
-      
-        </ul>
-      </div>
-
-    </header>
+<nav class="navbar">
+  <div class="navbar_logo">
+      <i class="fas fa-leaf"></i>
+      <a href="">WOULD U ZERO?</a>
   </div>
-  <!-- header end -->
+  <ul class="navbar_category">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="online.php">Online</a></li>
+      <li><a href="offline.html">Offline</a></li>
+  </ul>
+  <div class="navbar_toogleBtn">
+      <i class="fas fa-bars"></i>
+  </div>
+</nav>
+<!-- header end -->
 
   <!-- filter -->
   <div class="filter_container">
-    <a id="cafe" class="filter" href="?filter=카페&page=1">
+    <a id="filter_cafe" class="filter" href="?filter=카페&page=1">
       <p>카페</p>
     </a>
 
-    <a id="zerowaste" class="filter" href="?filter=제로웨이스트&page=1">
+    <a id="filter_zerowaste" class="filter" href="?filter=제로웨이스트&page=1">
       <p>제로웨이스트샵</p>
     </a>
 
-    <a id="refill" class="filter" href="?filter=리필&page=1">
+    <a id="filter_refill" class="filter" href="?filter=리필&page=1">
       <p>리필샵</p>
     </a>
   </div>
@@ -66,38 +63,9 @@
     <div id="map">
 
     <script>
-    var count = <?php echo($_GET['page']); ?>;
-    var ary = <?php include 'php/offline_search_map.php';?>;
-
-    var mapContainer = document.getElementById('map'),
-        mapOption = { 
-            center: new kakao.maps.LatLng(37.5456, 126.9798),
-            level: 9 // 지도의 확대 레벨
-        };
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-
-    for (var i = 3; i > 0; i--)
-    {
-        var imageSize = new kakao.maps.Size(24,35);
-
-        var markerImg = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(ary[count * 3 - i]['lat'], ary[count * 3 - i]['lng']),
-            title: ary[count * 3 - i]['store_name'],
-            image: markerImg
-        });
-
-        var infowindow = new kakao.maps.InfoWindow({
-        content: ary[count * 3 - i]['store_name']
-    });
-
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-    }
+      var count = <?php echo($_GET['page']); ?>;
+      var ary = <?php include 'php/offline_search_map.php';?>;
+      all_searched_map(count, ary);
     </script>
   </div>
 </div>
@@ -118,50 +86,18 @@
   <!-- modal -->
     <div id="myModal" class="modal">
       <div class="modal_box">
-        <div class="modal_info">
-          <span class="close_cursor" onclick="closeModal()">&times;</span>
-          modal info
-        </div>
+        <div id="modal_in_info" class="modal_info"></div>
         
         <div class="modal_map">
-            <div id="map2" style="z-index: 4; width:auto; height: 500px;">
-              <script>
-              var count = <?php echo($_GET['page']); ?>;
-              var ary = <?php include 'php/offline_search_map.php';?>;
-              
-              var lat = ary[0]['lat'];
-              var lng = ary[0]['lng'];
-              console.log(lat);
-              console.log(lng);
-              37.4824154,126.9135268
-              var mapContainer = document.getElementById('map2'),
-                  mapOption = { 
-                      center: new kakao.maps.LatLng(37.4824154, 126.9135268),
-                      level: 3 // 지도의 확대 레벨
-                  };
-              var map = new kakao.maps.Map(mapContainer, mapOption);
-              
-              var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-              var imageSize = new kakao.maps.Size(24,35);
-              var markerImg = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-              var marker = new kakao.maps.Marker({
-                  map: map,
-                  position: new kakao.maps.LatLng(37.4824154, 126.9135268),
-                  image: markerImg
-              });
-              </script>
-          </div>
+            <div id="map2"></div>
         </div>
       </div>
     </div>
   <!-- modal end -->
 
   <!-- page -->
-  <div class="page">
     <?php include 'php/offline_paging.php' ?>
-  </div>
-
   <!-- page end -->
+
 </body>
 </html>

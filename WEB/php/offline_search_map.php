@@ -1,10 +1,9 @@
 <?php
-$link=mysqli_connect("localhost","admin","admin","test");
+$link = mysqli_connect("localhost", "admin", "admin", "WZ");
 $filter = $_GET['filter'];
 $page = $_GET['page'];
 $sql = "select * from offline_info where store_type like '%$filter%'";
 $result = mysqli_query($link, $sql);
-$html = array();
 $data = array();
 $i = 0;
 
@@ -17,7 +16,6 @@ while ($row = mysqli_fetch_array($result))
 		"lat" => $row['lat'],
 		"lng" => $row['lng']
 	]);
-
 }
 
 echo(json_encode($data, JSON_UNESCAPED_UNICODE));
