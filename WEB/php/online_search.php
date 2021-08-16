@@ -38,7 +38,7 @@
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
-	  <link rel="stylesheet" href="../css/online.css?after">
+	  <link rel="stylesheet" href="../css/online.css?a">
 	  <script src = "../js/update_click.js"></script> 
   </head>
 	<!-- header -->
@@ -138,7 +138,7 @@
 				<option value="siteName">사이트명</option>
 			</select>
 			<input type="text" name="search" placeholder="검색어를 입력하세요">
-			<button>검색</button>
+			<button><img src="../img/검색.png"></button>
 		</div>
   	</form>
 

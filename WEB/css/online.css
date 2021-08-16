@@ -32,14 +32,14 @@
 }
 
 .search-box > button {
-    width: 50px;
-    height: 100%;
-    border: 0px;
-    background: #186325;
-    outline: none;
+    margin-top: 6px;
+    width: 40px;
+    background: no-repeat;
+    border: none;
     float: right;
-    color: #ffffff
 }
+
+.search-box > button > img { text-align: center; width: 60%; height: 60%;}
 
 .search-value {
     margin-top: 25px;
