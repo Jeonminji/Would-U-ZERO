@@ -62,7 +62,7 @@ function modalinfo(store){
                         icon[i].style.fontSize = '1.5em';
                     }
                     for(i = 0; i < modal_info_divs_num; i++){
-                        modal_info_divs[i].style.height = "50px"
+                        modal_info_divs[i].style.height = "40px"
                     }
                     modal_address.style.fontSize = '1em';
                     modal_insta_txt.style.fontSize = '1em';
