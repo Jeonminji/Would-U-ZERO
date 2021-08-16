@@ -36,7 +36,7 @@
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="css/header.css?after">
       <link rel="stylesheet" href="css/category.css?after">
-	  <link rel="stylesheet" href="css/online.css?a">
+	  <link rel="stylesheet" href="css/online.css?after">
 	  <script src = "js/update_click.js"></script>
 	  <script src="js/header.js" defer></script>
   </head>

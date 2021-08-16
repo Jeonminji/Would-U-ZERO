@@ -37,7 +37,7 @@
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/header.css?after">
-      <link rel="stylesheet" href="../css/category.css?a">
+      <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?after">
 	  <script src = "../js/update_click.js"></script> 
   </head>
@@ -180,7 +180,7 @@
     	?>
 		
 		<div class="item" style="text-align: center;">
-			<a onclick= "updateClick('<?= $name ?>')">
+			<a onclick= "updateClick2('<?= $name ?>')">
 				<img src="<?= $row["img"]?>">
 			</a>
 			<a style="font-size: 16px; color: #186325; font-weight: bold;"><br><?= $row["siteName"]?></a>
