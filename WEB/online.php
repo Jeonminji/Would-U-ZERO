@@ -36,7 +36,7 @@
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="css/header.css?after">
       <link rel="stylesheet" href="css/category.css?after">
-	  <link rel="stylesheet" href="css/online.css?a">
+	  <link rel="stylesheet" href="css/online.css?after">
 	  <script src = "js/update_click.js"></script>
 	  <script src="js/header.js" defer></script>
   </head>
@@ -60,16 +60,7 @@
   	<!-- header end -->
   
   
-  <form action="php/online_search.php" method="GET">
-	<div class="search-box">
-        <select name="search-type">
-			<option value="name">상품명</option>
-			<option value="siteName">사이트명</option>
-		</select>
-		<input type="text" name="search" placeholder="검색어를 입력하세요">
-		<button>검색</button>
-	</div>
-  </form>
+  
   	  
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -142,6 +133,17 @@
 			</nav>
 		</header>
 	</div>
+
+	<form action="php/online_search.php" method="GET">
+	<div class="search-box">
+        <select name="search-type">
+			<option value="name">상품명</option>
+			<option value="siteName">사이트명</option>
+		</select>
+		<input type="text" name="search" placeholder="검색어를 입력하세요">
+		<button>검색</button>
+	</div>
+  </form>
 	
 	<div class="order">
 	<form action="php/online_order.php" method="GET">

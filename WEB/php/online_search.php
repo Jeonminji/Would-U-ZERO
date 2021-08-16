@@ -37,7 +37,7 @@
       <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet" >
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/header.css?after">
-      <link rel="stylesheet" href="../css/category.css?a">
+      <link rel="stylesheet" href="../css/category.css?after">
 	  <link rel="stylesheet" href="../css/online.css?after">
 	  <script src = "../js/update_click.js"></script> 
   </head>
@@ -59,18 +59,7 @@
     </nav>
   	<!-- header end --> 
   
-  <form action="online_search.php" method="GET">
-	<div class="search-box">
-        <select name="search-type">
-			<option value="name">상품명</option>
-			<option value="siteName">사이트명</option>
-		</select>
-		<input type="text" name="search" placeholder="검색어를 입력하세요">
-		<button>검색</button>
-	</div>
-  </form>
-
-
+  
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   <script>
 		$(document).ready(function(){
@@ -142,6 +131,16 @@
 		</header>
 	</div>
 
+	<form action="online_search.php" method="GET">
+		<div class="search-box">
+			<select name="search-type">
+				<option value="name">상품명</option>
+				<option value="siteName">사이트명</option>
+			</select>
+			<input type="text" name="search" placeholder="검색어를 입력하세요">
+			<button>검색</button>
+		</div>
+  	</form>
 
 	<div class="product">
 		<?php                           
@@ -170,7 +169,7 @@
         ?>
 
         <div class="search-value">
-            <a style="font-size: 22px; color: #000; font-weight: bold;">'<?php echo $search; ?>' 검색 결과 <?php echo $count; ?>건이 나왔습니다.</a>
+            <a style="color: #000;">'<?php echo $search; ?>' 검색 결과 <?php echo $count; ?>건이 나왔습니다.</a>
         </div>
 
         <?php

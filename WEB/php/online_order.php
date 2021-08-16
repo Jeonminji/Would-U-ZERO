@@ -38,7 +38,7 @@
 	  <script src="https://kit.fontawesome.com/5fd881ff65.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/header.css?after">
       <link rel="stylesheet" href="../css/category.css?after">
-	  <link rel="stylesheet" href="../css/online.css?a">
+	  <link rel="stylesheet" href="../css/online.css?after">
   </head>
   <body>
 	<!-- header -->
@@ -58,33 +58,20 @@
         </div>
     </nav>
   	<!-- header end -->
- 
-  
-  <form action="online_search.php" method="GET">
-	<div class="search-box">
-        <select name="search-type">
-			<option value="name">상품명</option>
-			<option value="siteName">사이트명</option>
-		</select>
-		<input type="text" name="search" placeholder="검색어를 입력하세요">
-		<button>검색</button>
-	</div>
-  </form>
-  	  
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-  <script>
-		$(document).ready(function(){
-			
-			//모든 서브 메뉴 감추기
-			$(".sub").css({display:"none"});  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script>
+			$(document).ready(function(){
+				
+				//모든 서브 메뉴 감추기
+				$(".sub").css({display:"none"});  
 
-			$(".gnb > li > a").click(function() {
-				$(".sub").css({display:"none"}); //다른 서브메뉴 감추기
-				$(this).next("ul").slideDown(300);
-			})
-		});
-	</script>
+				$(".gnb > li > a").click(function() {
+					$(".sub").css({display:"none"}); //다른 서브메뉴 감추기
+					$(this).next("ul").slideDown(300);
+				})
+			});
+		</script>
 
 <div id="wrap">
 		<header class="category">
@@ -142,6 +129,17 @@
 			</nav>
 		</header>
 	</div>
+
+	<form action="online_search.php" method="GET">
+		<div class="search-box">
+			<select name="search-type">
+				<option value="name">상품명</option>
+				<option value="siteName">사이트명</option>
+			</select>
+			<input type="text" name="search" placeholder="검색어를 입력하세요">
+			<button>검색</button>
+		</div>
+  	</form>
 	
 	<div class="order">
 	<form action="online_order.php" method="GET">
