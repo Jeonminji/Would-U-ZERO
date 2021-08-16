@@ -38,8 +38,10 @@
       <link rel="stylesheet" href="css/category.css?after">
 	  <link rel="stylesheet" href="css/online.css?a">
 	  <script src = "js/update_click.js"></script>
+	  <script src="js/header.js" defer></script>
   </head>
   <body>
+<<<<<<< HEAD
 	<!-- header -->
     <nav class="navbar">
         <div class="navbar_logo">
@@ -56,6 +58,24 @@
             <i class="fas fa-bars"></i>
         </div>
     </nav>
+=======
+    <!-- header -->
+    <nav class="navbar">
+      <div class="navbar_logo">
+          <i class="fas fa-leaf"></i>
+          <a href="">WOULD U ZERO?</a>
+      </div>
+      <ul class="navbar_category">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="online.php">Online</a></li>
+          <li><a href="offline.html">Offline</a></li>
+      </ul>
+      <div class="navbar_toogleBtn">
+          <i class="fas fa-bars"></i>
+      </div>
+ 	</nav>
+>>>>>>> 216e1b146bd6985d413f425cc904b14648189d67
   	<!-- header end -->
   
   
