@@ -16,9 +16,12 @@
   {
     $join_ary = array('\'',$html[$page * 3 + $j - 3]["store_name"],'\'');
     $ret = join("",$join_ary);
-
-    echo('<div class="searched_list">
-    <a class="prev" onclick="plusSlides(-1,'.$j.')">
+ 
+    if ($i == 1)
+	echo('<div class="searched_list" style="margin-left: 37.5%">');
+    else
+    	echo('<div class="searched_list">');
+    echo ('<a class="prev" onclick="plusSlides(-1,'.$j.')">
       <img src="img/point_prev.png">
     </a>
     <a class="next" onclick="plusSlides(1,'.$j.')">
