@@ -103,12 +103,12 @@ function modal_maps(res){
 function modal_info(res)
 {
   const element = document.getElementById("modal_in_info");
-  element.innerHTML = ('<div style="height:50px; margin-top: 30%">' +
+  element.innerHTML = ('<div class="modal_info_2">' +
   '<div style="width: 90%; float:left">' + 
     '<p style="text-align:center; font-size: larger;">'+ res['store_name']+'</p> </div>' +
   '<div style="float:center">' + 
     '<a class="close_cursor" onclick="closeModal()">&times;</a></div></div>' + 
-  '<div class="secific_info" style="margin-bottom: 2%; margin-left: 30px;">' + 
+  '<div class="specific_info">' + 
   '<p> 주소 : '+ res['address'] +'</p>' +
   '<a href="'+ res['link'] +'" sytle="cursor: pointer"> 인스타그램 :'+ res['link']+'</a>' +
   '<p> 전화번호 : '+ res['store_num'] +'</p>' +

@@ -1,27 +1,56 @@
 /* searched map */
 .mapContainer_searched {
-    margin-top: 20px;
-    width: 100%;
-    height: 450px;
+  margin-top: 20px;
+  width: 100%;
+  height: 450px;
 }
 .mapContainer_searched #map {
-    margin: 0 auto;
-    width: 500px;
-    height: 400px;
+  margin: 0 auto;
+  width: 500px;
+  height: 400px;
 }
-
 /* searched map */
 
 /* searched count */
 .searched_count {
-    margin-top: 20px;
-    text-align: center;
+  width: 100%;
+  font-size: small;
+  text-align: center;
 }
 /* searched count */
 
+/* category filter */
+.filter_container {
+  width: 80%;
+  height: 100px;
+  margin-bottom: 3%;
+  margin-left: 30%;
+  }
+  .filter {
+  cursor: pointer;
+  float: left;
+  width: 10%;
+  height: 55px;
+  border-width: 4px;
+  border-style: double;
+  border-color: rgba(36, 124, 58, 0.966);
+  background-color: none;
+  margin: 5% 3% 0 3%;
+  border-radius: 20%;
+  }
+  .filter:hover {
+  background-color: rgba(164, 216, 190, 0.966);
+  }
+  .filter p {
+  font-size: small;
+  text-align: center;
+  color: black;
+  }
+  /* category filter */
+
 /* searched list */
 .search_box {
-  height: 500px;
+height: 500px;
 }
 .searched_list {
   float: left;
@@ -31,159 +60,261 @@
   border-width: 1px;
   border-collapse: collapse;
   border-color: black;
-  margin: 0 58px 0 58px;
-}
+  margin: 0 4% 0 4%;
+  }
 .searched_list img {
-  width: 30px;
+width: 30px;
 }
 .slideshow-container {
-  width: 70%;
-  height: 50%;
-  position: relative;
-  margin: auto;
+width: 70%;
+height: 50%;
+position: relative;
+margin: auto;
 }
 .mySlides1, .mySlides2, .mySlides3 {
-  margin-top: 10px;
-  display: none;
+margin-top: 10px;
+display: none;
 }
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+-webkit-animation-name: fade;
+-webkit-animation-duration: 1.5s;
+animation-name: fade;
+animation-duration: 1.5s;
 }
 .prev {
-  margin-top: 130px;
-  margin-right: 10%;
-  cursor: pointer;
-  position: absolute;
-  width: auto;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+margin-top: 130px;
+margin-right: 10%;
+cursor: pointer;
+position: absolute;
+width: auto;
+transition: 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
 }
 .next {
-  margin-top: 130px;
-  margin-left: 22%;
-  cursor: pointer;
-  position: absolute;
-  width: auto;
-  transition: 0.6s ease;
-  border-radius: 3px 0 0 3px;
-  user-select: none;
+margin-top: 130px;
+margin-left: 22%;
+cursor: pointer;
+position: absolute;
+width: auto;
+transition: 0.6s ease;
+border-radius: 3px 0 0 3px;
+user-select: none;
 }
 /* searched list */
 
 /* modal */
 #myModal {
-  z-index: 1;
-  display: none;
-  position: fixed;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(131, 131, 131, 0.541);
+z-index: 1;
+display: none;
+position: fixed;
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(131, 131, 131, 0.541);
 }
 .modal_box {
-  z-index: 2;
-  width: 80%;
-  height: 550px;
-  margin: auto;
-  background-color: rgb(255, 255, 255);
+z-index: 2;
+width: 80%;
+height: 90%;
+margin: 0 7% 0 7%;
+background-color: rgb(255, 255, 255);
 }
 .modal_map {
-  z-index: 3;
-  float: right;
-  width: 50%;
+z-index: 3;
+float: right;
+width: 50%;
+height: 100%;
 }
 #map2 {
-  z-index: 4;
-  border-style: solid;
-  border-color: rgba(36, 124, 58, 0.966);
-  height: 550px;
+z-index: 4;
+border-style: solid;
+border-color: rgba(36, 124, 58, 0.966);
+height: 100%;
 }
 .modal_info {
-  z-index: 3;
-  float: right;
-  width: 50%;
-  height: 550px;
+z-index: 3;
+float: right;
+width: 50%;
+height: 100%;
+}
+.modal_info_2{
+  margin-top: 30%;
+}
+.specific_info{
+  margin-left: 10%;
 }
 .insta_img img{
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  position: absolute;
+width: 50px;
+height: 50px;
+cursor: pointer;
+position: absolute;
 }
 .close_cursor {
-  color: rgba(36, 124, 58, 0.966);
-  font-size: 50px;
-  cursor: pointer;
+color: rgba(36, 124, 58, 0.966);
+font-size: 50px;
+cursor: pointer;
 }
 /* modal */
 
-/* category filter */
-.filter_container {
-  width: 50%;
-  height: 100px;
-  margin-left: 30%;
-}
-.filter {
-  cursor: pointer;
-  float: left;
-  width: 20%;
-  height: 55px;
-  border-width: 4px;
-  border-style: double;
-  border-color: rgba(36, 124, 58, 0.966);
-  background-color: none;
-  margin: 10% 3% 0 3%;
-  border-radius: 20%;
-}
-.filter:hover {
-  background-color: rgba(164, 216, 190, 0.966);
-}
-.filter p {
-  font-size: small;
-  text-align: center;
-  color: black;
-}
-/* category filter */
-
 /* info box */
 .store_info {
-  height: 185px;
-  margin-top: 25px;
+height: 185px;
+margin-top: 25px;
 }
 
 .info_button{
-  text-align: center;
-  margin-left: 43%;
-  width: 100px;
-  height: 50px;
-  cursor: pointer;
-  border-width: 3px;
-  border-style: double;
-  border-color: rgba(36, 124, 58, 0.966);
-  border-radius: 30%;
+text-align: center;
+margin-left: 43%;
+width: 100px;
+height: 50px;
+cursor: pointer;
+border-width: 3px;
+border-style: double;
+border-color: rgba(36, 124, 58, 0.966);
+border-radius: 30%;
 }
 .info_button:hover {
-  background-color: rgba(164, 216, 190, 0.966);
+background-color: rgba(164, 216, 190, 0.966);
 }
-
 /* info box */
 
 /*  page  */
 .page {
-  width:20%;
-  height: 60px;
-  margin: 0 auto;
-  margin-top: 20px;
+width: 20%;
+height: 60px;
+margin-top: 2%;
+margin-left: 40%;
 }
 .page a {
-  font-size: 30px;
-  text-align: right;
+font-size: 30px;
+text-align: right;
 }
 /*  page  */
+
+@media screen and (max-width: 1024px){
+  .searched_list {
+    float: left;
+    width: 25%;
+    height: 500px;
+    border-style: ridge;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-color: black;
+    margin: 0 40px 0 40px;
+    }
+    .page {
+      width: 20%;
+      height: 60px;
+      margin-top: 2%;
+      margin-left: 38%;
+      }
+}
+
+@media screen and (max-width: 900px){
+  .searched_list {
+    float: left;
+    width: 25%;
+    height: 500px;
+    border-style: ridge;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-color: black;
+    margin: 0 35px 0 35px;
+    }
+    .page {
+      width: 20%;
+      height: 60px;
+      margin-top: 2%;
+      margin-left: 36%;
+      }
+}
+
+@media screen and (max-width: 450px){
+  .searched_list {
+    border-style: solid;
+    border-color: green;
+    float: left;
+    width: 60%;
+    height: 500px;
+    border-style: ridge;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-color: black;
+    margin-left: 100px;
+    }
+    .prev {
+      margin-top: 130px;
+      margin-right: 10%;
+      cursor: pointer;
+      position: absolute;
+      width: auto;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      }
+    .next {
+      margin-top: 130px;
+      margin-left: 235px;
+      cursor: pointer;
+      position: absolute;
+      width: auto;
+      transition: 0.6s ease;
+      border-radius: 3px 0 0 3px;
+      user-select: none;
+      }
+    .filter_container {
+      width: 80%;
+      height: 100px;
+      margin-bottom: 3%;
+      margin-left: 28%;
+      }
+    .filter {
+      cursor: pointer;
+      float: left;
+      width: 15%;
+      height: 55px;
+      border-width: 4px;
+      border-style: double;
+      border-color: rgba(36, 124, 58, 0.966);
+      background-color: none;
+      margin: 10% 2% 0 2%;
+      border-radius: 20%;
+      }
+
+      .modal_map {
+        z-index: 3;
+        float: right;
+        width: 100%;
+        height: 50%;
+        }
+        #map2 {
+        z-index: 4;
+        border-style: solid;
+        border-color: rgba(36, 124, 58, 0.966);
+        height: 100%;
+        }
+        .modal_info {
+        z-index: 3;
+        float: right;
+        width: 100%;
+        height: 50%;
+        }
+        .modal_info_2{
+          margin-top: 5%;
+        }
+        .specific_info{
+          margin-left: 3%;
+        }
+
+        .page {
+          width: 20%;
+          height: 60px;
+          margin-top: 5%;
+          margin-left: 26%;
+          }
+
+}
