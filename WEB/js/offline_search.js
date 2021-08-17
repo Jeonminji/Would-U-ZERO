@@ -110,7 +110,7 @@ function modal_info(res)
     '<a class="close_cursor" onclick="closeModal()">&times;</a></div></div>' + 
   '<div class="specific_info">' + 
   '<p> 주소 : '+ res['address'] +'</p>' +
-  '<a href="'+ res['link'] +'" sytle="cursor: pointer"> 인스타그램 :'+ res['link']+'</a>' +
+  '<a href="'+ res['link'] +'" sytle="cursor: pointer"> 인스타그램으로 이동</a>' +
   '<p> 전화번호 : '+ res['store_num'] +'</p>' +
     '<p> 운영시간 : '+res["opening_hours"]+'</p>' +
   '<p> 추가정보 : '+res["other_info"]+'</p></div>');
