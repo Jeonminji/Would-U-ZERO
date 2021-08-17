@@ -147,6 +147,7 @@ height: 100%;
 }
 .specific_info{
   margin-left: 10%;
+  font-size: medium;
 }
 .insta_img img{
 width: 50px;
@@ -266,15 +267,15 @@ text-align: right;
       user-select: none;
       }
     .filter_container {
-      width: 100%;
+      width: 80%;
       height: 100px;
       margin-bottom: 3%;
-      margin-left: 21%;
+      margin-left: 22%;
       }
     .filter {
       cursor: pointer;
       float: left;
-      width: 15%;
+      width: 20%;
       height: 55px;
       border-width: 4px;
       border-style: double;
