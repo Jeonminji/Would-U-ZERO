@@ -2,7 +2,7 @@
 	$filter = $_GET['filter'];
 	$page = $_GET['page'];
 	$html = array();
-	$link = mysqli_connect("localhost", "admin", "admin", "WZ");
+	$line = mysqli_connect('127.0.0.1', 'root', '123', 'wuz');
 	$sql = "select * from offline_info where store_type like '%$filter%'";
 	$result = mysqli_query($link, $sql);
   $i = 0;
@@ -12,18 +12,12 @@
     $i = $i + 1;
   }
   
-  $margin = 0;
-  if ($i % 3 == 0)
-    $margin = 4;
-  else
-    $margin = 37.5;
-
   for($j = 0; ($j < 3) &&( $j < $i); $j = $j + 1)
   {
     $join_ary = array('\'',$html[$page * 3 + $j - 3]["store_name"],'\'');
     $ret = join("",$join_ary);
 
-    echo('<div class="searched_list" style="margin-left:'.$margin.'%">
+    echo('<div class="searched_list">
     <a class="prev" onclick="plusSlides(-1,'.$j.')">
       <img src="img/point_prev.png">
     </a>
@@ -47,8 +41,8 @@
       <p style="font-size: larger; text-align: center;">'.$html[$page * 3 + $j - 3]["store_name"].'</p>
       <p> &nbsp운영시간 </br></p>
       <p>&nbsp&nbsp'.$html[$page * 3 + $j - 3]["opening_hours"].'</p>
-      <p> &nbsp인스타그램 </br></p>
-      <a  style="font-size:15px;" href='.$html[$page * 3 + $j - 3]['link'].'>&nbsp&nbsp'.$html[$page * 3 + $j - 3]['link'].'</a>
+      <p>
+      <a href='.$html[$page * 3 + $j - 3]['link'].'>&nbsp&nbsp 인스타그램으로 이동</a></p>
       </div>
     
       <a class="info_button" onclick="openModal('.$ret.')">더보기</a>
