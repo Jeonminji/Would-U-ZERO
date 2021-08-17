@@ -44,8 +44,8 @@
 	<!-- header -->
     <nav class="navbar">
         <div class="navbar_logo">
-            <i class="fas fa-leaf"></i>
-            <a href="">WOULD U ZERO?</a>
+			<div><img class ="logo_img" src="img/planet.png"></div>
+			<div><a href="">WOULD U ZERO?</a></div>
         </div>
         <ul class="navbar_category">
             <li><a href="index.html">Home</a></li>
