@@ -24,27 +24,6 @@
   background-position: center; /* 이미지를 요소의 정가운데로 처리 */
   background-attachment: fixed; /* 스크롤바 움직일때 이미지가 따라다님 */
 }
-.img {
-    width: 1450px;
-    height: 370px;
-    /* outline-style: solid; */
-    text-align: center;
-}
-
-.img > img {
-    height: 100%;
-    width: 370px;
-    margin-right: 30px;
-}
-
-/* .question {
-    width: 1450px;
-    height: 330px;
-    text-align: center;
-    margin-top: 70px;
-    font-size: 20px;
-    padding: 0 100px 0 100px;
-} */
 
 .question{
     width: 100%;
@@ -222,6 +201,7 @@
     }
     .fixed_img1{
         height: 200px;
+        background-image: url(../img/img02.jpg);
     }
     .question{
         height: 800px;
