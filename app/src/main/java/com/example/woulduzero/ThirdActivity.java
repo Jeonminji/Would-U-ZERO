@@ -21,7 +21,7 @@ public class ThirdActivity extends AppCompatActivity {
         //more info button
         btn_moreInfo = (findViewById(R.id.btn_moreinfo));
         btn_moreInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://3.36.96.127/Would-U-ZERO/WEB/about.html"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.kr/"));
             startActivity(intent);
         });
 
