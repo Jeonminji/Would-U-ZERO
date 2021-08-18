@@ -41,7 +41,7 @@ function modalinfo(store){
             modal_opening_hours.innerText = res.opening_hours;
             modal_store_num.innerText = res.store_num;
 
-            if(res.other_info != " "){
+            if(res.other_info != '" "'){
                 modal_etc.classList.remove("hidden");
                 modal_etc_txt.innerHTML = res.other_info;
                 if(imgWidth <= 300){
